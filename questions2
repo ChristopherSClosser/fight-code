@@ -28,23 +28,19 @@ Questions for Fight Code Game
 
     a. console.log();
     >b. return ;
-    c. alert();
-    d. prompt();
+    c. prompt();
 
 3. Which tag in HTML does not require a closing tag?
-    a. img tag
-    b. h1 tag
-    c. p tag
-    d. section tag
+    >a. img tag
+    b. p tag
+    c. section tag
 
 4. Which of the following is an example of semantic HTML?
     a. <b> </b>
-    b. <i> </i>
-    c. <em> </em>
-    d. <p> </p>
+    >b. <em> </em>
+    c. <p> </p>
 
 5. What is the proper syntax for writing a comment in HTML?
-    a. <!-- Insert  comment here. -->
+    >a. <!-- Insert  comment here. -->
     b. // Insert comment here.
     c. <-- Insert comment here. -->
-    d. /* Insert comment here.
