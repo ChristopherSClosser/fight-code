@@ -19,10 +19,6 @@ Questions for Fight Code Game
           age: 6
          };
 
-    d. var puppy = function(age) {
-        return age;
-      };
-
 
 2. What command is used to exit out of a function in JavaScript?
 
@@ -41,6 +37,6 @@ Questions for Fight Code Game
     c. <p> </p>
 
 5. What is the proper syntax for writing a comment in HTML?
-    >a. <!-- Insert  comment here. -->
+    a. <-- Insert  comment here. -->
     b. // Insert comment here.
-    c. <-- Insert comment here. -->
+    >c. <!-- Insert comment here. -->
