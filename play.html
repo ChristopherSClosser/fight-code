@@ -3,28 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Fight Code</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <form id="entry-form" class="form" action="" method="">
           <fieldset>
             <label for="pickName">Pick a Name</label>
             <input type="text" name="pickName" value="Test Name" required>
-            <ul>
+          </fieldset>
+
+          <fieldset class="radiogroup">
+            <ul class="characters">
               <li>
-                <input type="radio" id="char-one" name="selector">
+                <input type="radio" id="char-one" name="select">
                 <label for="char-one">Char-one-image</label>
               </li>
               <li>
-                <input type="radio" id="char-two" name="selector">
+                <input type="radio" id="char-two" name="select">
                 <label for="char-two">char-two-image</label>
               </li>
               <li>
-                <input type="radio" id="char-three" name="selector">
+                <input type="radio" id="char-three" name="select">
                 <label for="char-three">char-three-image</label>
               </li>
             </ul>
-            <ul>
+
+            </fieldset>
+            <fieldset class="radiogroup">
+            <ul class="level">
               <li>
                 <input type="radio" id="diff-one" name="selector">
                 <label for="diff-one">level-one</label>
