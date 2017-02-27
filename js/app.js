@@ -3,6 +3,9 @@ var levels = ['diff-one','diff-two', 'diff-three'];
 var characters = ['char-one', 'char-two', 'char-three'];
 var chosenChar;
 var chosenLevel;
+
+var questions = [];
+var questionNumber = 0;
 //user constructor
 function Player(name, difficuly, fighter){
   this.name = name;
@@ -14,6 +17,14 @@ function Question(question, answers, correctAnswer) {
   this.answers = answers;
   this.correctAnswer = correctAnswer;
 }
+
+// function getQuestion(questions, questionNumber) {
+//   var questionElement = document.getElementById('questions');
+//   var questionContainer = document.createElement('div');
+//   questionContainer.setAttribute('class', 'question-prompt');
+//   var timerElement = document.createElement('div');
+//   timerElement.setAttribute('id', 'timer');
+// }
 var formElement = document.getElementById('entry-form');
 
 formElement.addEventListener('submit', handleSubmit);
@@ -37,4 +48,5 @@ function handleSubmit (event){
   }
   var userName = event.target.pickName.value;
   console.log(userName, chosenChar, chosenLevel);
+  getQuestion(questions, questionNumber);
 }
