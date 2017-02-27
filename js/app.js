@@ -3,15 +3,18 @@ var levels = ['diff-one','diff-two', 'diff-three'];
 var characters = ['char-one', 'char-two', 'char-three'];
 var chosenChar;
 var chosenLevel;
+var questions = [];
+
 //user constructor
 function Player(name, difficuly, fighter){
   this.name = name;
   this.difficuly = difficuly;
   this.character = fighter;
 }
-function Question(question, answers, correctAnswer) {
+function Question(question, falseAnswerOne, falseAnswerTwo, correctAnswer) {
   this.question = question;
-  this.answers = answers;
+  this.falseAnswerOne = falseAnswerOne;
+  this.falseAnswerTwo = falseAnswerTwo;
   this.correctAnswer = correctAnswer;
 }
 var formElement = document.getElementById('entry-form');
@@ -38,3 +41,4 @@ function handleSubmit (event){
   var userName = event.target.pickName.value;
   console.log(userName, chosenChar, chosenLevel);
 }
+var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";', 'document.getElementById("demo").innerHTML = "Hello World!";');
