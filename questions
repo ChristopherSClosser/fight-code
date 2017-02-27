@@ -1,29 +1,32 @@
 What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?
 
-1 document.getElementById("p").innerHTML = "Hello World!";
-2 document.getElementById("demo").innerHTML = "Hello World!";
-3 #demo.innerHTML = "Hello World!";
+ 1 document.getElementById("p").innerHTML = "Hello World!";
+>2 document.getElementById("demo").innerHTML = "Hello World!";
+ 3 #demo.innerHTML = "Hello World!";
 
 Inside which HTML element do we put the JavaScript?
 
-1 <js>
-2 <script>
-3 <javascript>
+ 1 <js>
+>2 <script>
+ 3 <javascript>
 
 Where is the correct place to insert a JavaScript?
 
-1 Both the <head> section and the <body> section are correct
-2 The <head> section
-3 The <body> section
+>1 Both the <head> section and the <body> section are correct
+ 2 The <head> section
+ 3 The <body> section
 
 What is the correct syntax for referring to an external script called "xxx.js"?
 
-1 <script name="xxx.js">
-2 <script href="xxx.js">
-3 <script src="xxx.js">
+ 1 <script name="xxx.js">
+ 2 <script href="xxx.js">
+>3 <script src="xxx.js">
 
 How can you add a comment in a JavaScript?
 
-1 //This is a comment
-2 'This is a comment
-3 <!--This is a comment-->
+>1 //This is a comment
+ 2 'This is a comment
+ 3 <!--This is a comment-->
+
+
+Bio:
