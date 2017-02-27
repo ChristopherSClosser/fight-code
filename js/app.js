@@ -18,13 +18,14 @@ function Question(question, answers, correctAnswer) {
   this.correctAnswer = correctAnswer;
 }
 
-// function getQuestion(questions, questionNumber) {
-//   var questionElement = document.getElementById('questions');
-//   var questionContainer = document.createElement('div');
-//   questionContainer.setAttribute('class', 'question-prompt');
-//   var timerElement = document.createElement('div');
-//   timerElement.setAttribute('id', 'timer');
-// }
+function getQuestion(questions, questionNumber) {
+  var questionElement = document.getElementById('questionContainer');
+  var questionContainer = document.createElement('div');
+  questionContainer.textContent = questions[questionNumber].question;
+  questionElement.appendChild(questionContainer);
+  questionNumber++;
+}
+
 var formElement = document.getElementById('entry-form');
 
 formElement.addEventListener('submit', handleSubmit);
