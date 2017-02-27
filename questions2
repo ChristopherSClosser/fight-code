@@ -1,0 +1,42 @@
+Questions for Fight Code Game
+
+1. What is a valid syntax for declaring an Object Literal in JavaScript?
+
+    a. function GoodDog(name, age, bark) {
+          this.name = name;
+          this.age = age;
+          this.bark = bark;
+
+          this.dogSays = function () {
+            console.log('the dog says ' + this.bark);
+          };
+        }
+
+    b. var dog = 'Sparky';
+
+    >c. var puppy = {
+          name: 'Bucket',
+          age: 6
+         };
+
+
+2. What command is used to exit out of a function in JavaScript?
+
+    a. console.log();
+    >b. return ;
+    c. prompt();
+
+3. Which tag in HTML does not require a closing tag?
+    >a. img tag
+    b. p tag
+    c. section tag
+
+4. Which of the following is an example of semantic HTML?
+    a. <b> </b>
+    >b. <em> </em>
+    c. <p> </p>
+
+5. What is the proper syntax for writing a comment in HTML?
+    a. <-- Insert  comment here. -->
+    b. // Insert comment here.
+    >c. <!-- Insert comment here. -->
