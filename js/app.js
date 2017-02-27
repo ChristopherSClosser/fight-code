@@ -13,18 +13,20 @@ function Player(name, difficuly, fighter){
   this.difficuly = difficuly;
   this.character = fighter;
 }
-function Question(question, answers) {
+function Question(question, answers, correctAnswer) {
   this.question = question;
   this.answers = answers;
+  this.correctAnswer = correctAnswer;
 }
 
-// function getQuestion(questions, questionNumber) {
-//   var questionElement = document.getElementById('questions');
-//   var questionContainer = document.createElement('div');
-//   questionContainer.setAttribute('class', 'question-prompt');
-//   var timerElement = document.createElement('div');
-//   timerElement.setAttribute('id', 'timer');
-// }
+function getQuestion(questions, questionNumber) {
+  var questionElement = document.getElementById('questionContainer');
+  var questionContainer = document.createElement('div');
+  questionContainer.textContent = questions[questionNumber].question;
+  questionElement.appendChild(questionContainer);
+  questionNumber++;
+}
+
 var formElement = document.getElementById('entry-form');
 
 formElement.addEventListener('submit', handleSubmit);
@@ -50,6 +52,7 @@ function handleSubmit (event){
   console.log(userName, chosenChar, chosenLevel);
   getQuestion(questions, questionNumber);
 }
+
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
 var two = new Question('Inside which HTML element do we put the JavaScript?', ['<script>', '<js>', '<javascript>']);
 var three = new Question('Where is the correct place to insert a JavaScript?', ['Both the <head> section and the <body> section are correct', 'The <head> section', 'The <body> section']);
@@ -60,3 +63,4 @@ var seven = new Question('Which tag in HTML does not require a closing tag?', ['
 var eight = new Question('Which of the following is an example of semantic HTML?',['<em> </em>', '<b> </b>', '<p> </p>']);
 var nine = new Question('What is the proper syntax for writing a comment in HTML?', ['<!-- Insert comment here. -->', '// Insert comment here.', '<-- Insert  comment here. -->']);
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
+
