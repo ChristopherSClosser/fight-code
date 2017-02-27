@@ -17,9 +17,9 @@ As a user I want a fun game that helps me practice coding that is not entirely l
   * Create Questions and Answers
     * 10 Questions
       * Multiple Choice
-      * Write defined code
-      * Find the error
-      * Timed to 1 min
+      * Write defined code (Stretch)
+      * Find the error (Stretch)
+      * Timed to 1 min (Stretch)
       
     * Display
       * Fighters
