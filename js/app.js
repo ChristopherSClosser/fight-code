@@ -1,6 +1,8 @@
 'use strict';
 var levels = ['diff-one','diff-two', 'diff-three'];
 var characters = ['char-one', 'char-two', 'char-three'];
+var radioAnswers = ['ansOne', 'ansTwo', 'ansThree'];
+var labelIds = ['answerOne', 'answerTwo', 'answerThree'];
 var chosenChar;
 var chosenLevel;
 var human;
@@ -108,13 +110,10 @@ formElement.addEventListener('submit', handleSubmit);
 function submitAnswer(){
   event.preventDefault();
   event.stopPropagation();
-  var radioAnswers = ['ansOne', 'ansTwo', 'ansThree'];
-  var labelIds = ['answerOne', 'answerTwo', 'answerThree'];
   for (var i = 0; i < radioAnswers.length; i++) {
     //console.log('radio ans at i', radioAnswers[i]);
     var radioAns = document.getElementById(radioAnswers[i]);
     var radioLables = document.getElementById(labelIds[i]);
-
     if(radioAns.checked){
       if (radioLables.textContent === questions[questionNumber].answers[0]){
         //punch the computer
@@ -134,13 +133,15 @@ function submitAnswer(){
   getQuestion();
   clearInterval(tick);//Remove timer to prevent memory leak
   fireUpTimer();
-
   //set radio buttons to unchecked
+  uncheckRadio();
+}
+//set radio buttons to unchecked
+function uncheckRadio(){
   for (var i = 0; i < radioAnswers.length; i++) {
     document.getElementById(radioAnswers[i]).checked = false;
   }
 }
-
 var radioElement = document.getElementById('answersContainer');
 radioElement.addEventListener('submit', submitAnswer);
 
@@ -174,6 +175,7 @@ function fireUpTimer(){
       clearInterval(tick);
       displayHit(human);
       questionNumber++;
+      uncheckRadio();
       getQuestion();
       fireUpTimer();
     }
