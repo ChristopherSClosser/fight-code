@@ -3,6 +3,7 @@ var levels = ['diff-one','diff-two', 'diff-three'];
 var characters = ['char-one', 'char-two', 'char-three'];
 var chosenChar;
 var chosenLevel;
+var player;
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -25,6 +26,7 @@ function Player(name, difficuly, fighter){
   this.name = name;
   this.difficuly = difficuly;
   this.character = fighter;
+  this.health = 5;
 }
 function Question(question, answers) {
   this.question = question;
@@ -62,7 +64,6 @@ function getQuestion(questions, questionNumber) {
 }
 
 var formElement = document.getElementById('entry-form');
-
 formElement.addEventListener('submit', handleSubmit);
 
 function handleSubmit (event){
@@ -83,6 +84,16 @@ function handleSubmit (event){
     }
   }
   var userName = event.target.pickName.value;
-  console.log(userName, chosenChar, chosenLevel);
+  console.log('form data', userName, chosenChar, chosenLevel);
   getQuestion(questions, questionNumber);
+  player = new Player(userName, chosenLevel, chosenChar);
+  placeHealthBar(player);
+}
+function placeHealthBar(player){
+  var healthElement = document.getElementById('player-health');
+  for (var i = 0; i < player.health; i++) {
+    var imageElement = document.createElement('img');
+    imageElement.src = 'img/heart.png';
+    healthElement.appendChild(imageElement);
+  }
 }
