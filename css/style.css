@@ -1,5 +1,16 @@
 /*styling*/
 
 .healthBar img{
-  width: 80px;  
+  width: 80px;
+}
+.action {
+  width: 100%;
+}
+.overlay-animations {
+  width: 400px;
+  height:400px;
+  background: url("../img/POW.jpg");
+  background-size: contain;
+  position: absolute;
+  display: none;
 }

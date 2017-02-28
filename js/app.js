@@ -5,6 +5,8 @@ var chosenChar;
 var chosenLevel;
 var human;
 var computer;
+var timeLimit = 5; // in Seconds for question
+var overlayDuration = 5000; //in Milsecs
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -66,6 +68,7 @@ function handleSubmit (event){
   placeHealthBar(human);
   computer = new Player('computer', chosenLevel);// needs a Char and LvL?
   placeHealthBar(computer);
+  fireUpTimer();
 }
 //display questions
 function getQuestion(questions, questionNumber) {
@@ -106,19 +109,23 @@ function submitAnswer(){
   for (var i = 0; i < radioAnswers.length; i++) {
     //console.log('radio ans at i', radioAnswers[i]);
     var radioAns = document.getElementById(radioAnswers[i]);
+
     console.log('radio answers ', radioAns.textContent);
     console.log('this.answers ', one.answers[0]);
     if(radioAns.checked === true){
       if (radioAns.textContent === one.answers[0]){
         //punch the computer
         console.log('Punch the computer');
+        displayHit();
       } else {
         //the computer punches you
         console.log('You have been hit!');
+        displayHit();
       }
     }else{
       console.log('answer not checked ', radioAns.value);
     }
+    clearInterval(tick);//Remove timer to prevent memory leak
   }
   questions[i]++;
 }
@@ -139,5 +146,32 @@ function placeHealthBar(player){
     var imageElement = document.createElement('img');
     imageElement.src = 'img/heart.png';
     healthElement.appendChild(imageElement);
+  }
+}
+
+function fireUpTimer(){
+  var timerElement = document.getElementById('timer');
+  var tick = setInterval(changeSeconds, 1000);
+  timerElement.textContent = timeLimit;
+  function changeSeconds(){
+    timeLimit -= 1;
+    timerElement.textContent = timeLimit;
+    if (timeLimit === 0){
+      console.log('pow!!');
+      clearInterval(tick);
+      displayHit();
+    }
+  }
+}
+
+function displayHit(){
+  var overlay = document.getElementById('overlay-animations');
+  overlay.setAttribute('style', 'display: block');
+  console.log('Should see overlay');
+  var overlaytime = setInterval(overlayEnd, overlayDuration);
+  function overlayEnd(){
+    overlay.setAttribute('style', 'display: none');
+    clearInterval(overlaytime);
+    console.log('Clearing Overlay');
   }
 }
