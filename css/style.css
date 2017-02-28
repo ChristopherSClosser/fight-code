@@ -14,7 +14,19 @@
   position: absolute;
   display: none;
 }
-
-.chris div{
-  text-align: center;
+.winner-overlay {
+  width: 400px;
+  height:400px;
+  background: url("../img/ely.png");
+  background-size: contain;
+  position: absolute;
+  display: none;
+}
+.loser-overlay {
+  width: 400px;
+  height:400px;
+  background: url("../img/lindsay.png");
+  background-size: contain;
+  position: absolute;
+  display: none;
 }
