@@ -129,8 +129,9 @@ function submitAnswer(){
     } else {
       console.log('answer not checked ', answersContainer);
     }
-    clearInterval(tick);//Remove timer to prevent memory leak
   }
+  clearInterval(tick);//Remove timer to prevent memory leak
+  fireUpTimer();
   questions[i]++;
 }
 var radioElement = document.getElementById('answersContainer');
