@@ -11,6 +11,7 @@ var timeLimit = 5; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 var haveWinner = false;
+var charImg = ['','',''];
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
