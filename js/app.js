@@ -5,8 +5,10 @@ var chosenChar;
 var chosenLevel;
 var human;
 var computer;
-var timeLimit = 5; // in Seconds for question
-var overlayDuration = 5000; //in Milsecs
+var timeLimit = 20; // in Seconds for question
+var overlayDuration = 1000; //in Milsecs
+var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
+
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -124,7 +126,7 @@ function submitAnswer(){
     } else {
       console.log('answer not checked ', answersContainer);
     }
-    //clearInterval(tick);//Remove timer to prevent memory leak
+    clearInterval(tick);//Remove timer to prevent memory leak
   }
   questions[i]++;
 }
@@ -149,13 +151,14 @@ function placeHealthBar(player){
 }
 
 function fireUpTimer(){
+  var countDown = timeLimit;
   var timerElement = document.getElementById('timer');
-  var tick = setInterval(changeSeconds, 1000);
-  timerElement.textContent = timeLimit;
+  tick = setInterval(changeSeconds, 1000);
+  timerElement.textContent = countDown;
   function changeSeconds(){
-    timeLimit -= 1;
-    timerElement.textContent = timeLimit;
-    if (timeLimit === 0){
+    countDown -= 1;
+    timerElement.textContent = countDown;
+    if (countDown === 0){
       console.log('pow!!');
       clearInterval(tick);
       displayHit();
