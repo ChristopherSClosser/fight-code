@@ -3,6 +3,8 @@ var levels = ['diff-one','diff-two', 'diff-three'];
 var characters = ['char-one', 'char-two', 'char-three'];
 var chosenChar;
 var chosenLevel;
+var human;
+var computer;
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -23,8 +25,10 @@ var answers = [];
 //user constructor
 function Player(name, difficuly, fighter){
   this.name = name;
+  this.isHuman = false;
   this.difficuly = difficuly;
   this.character = fighter;
+  this.health = 5;
 }
 function Question(question, answers) {
   this.question = question;
@@ -52,6 +56,14 @@ function handleSubmit (event){
   var userName = event.target.pickName.value;
   console.log(userName, chosenChar, chosenLevel);
   getQuestion(questions, questionNumber);
+  var userName = event.target.pickName.value;
+  console.log('form data', userName, chosenChar, chosenLevel);
+  getQuestion(questions, questionNumber);
+  human = new Player(userName, chosenLevel, chosenChar);
+  human.isHuman = true;
+  placeHealthBar(human);
+  computer = new Player('computer', chosenLevel);// needs a Char and LvL?
+  placeHealthBar(computer);
 }
 //display questions
 function getQuestion(questions, questionNumber) {
@@ -99,7 +111,23 @@ function submitAnswer(){
     }
   }
   questions[i] += 1;
-  // getQuestion();
 }
 var radioElement = document.getElementById('answersContainer');
 radioElement.addEventListener('submit', submitAnswer);
+
+function placeHealthBar(player){
+  if (player.isHuman) {
+    var healthId = 'player-health';
+  } else {
+    healthId = 'computer-health';
+  }
+  var healthElement = document.getElementById(healthId);
+  while (healthElement.firstChild) {
+    healthElement.removeChild(healthElement.firstChild);
+  }
+  for (var i = 0; i < player.health; i++) {
+    var imageElement = document.createElement('img');
+    imageElement.src = 'img/heart.png';
+    healthElement.appendChild(imageElement);
+  }
+}
