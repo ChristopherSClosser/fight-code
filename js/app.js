@@ -9,7 +9,6 @@ var timeLimit = 20; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 
-
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
 var two = new Question('Inside which HTML element do we put the JavaScript?', ['<script>', '<js>', '<javascript>']);
@@ -68,14 +67,12 @@ function handleSubmit (event){
   placeHealthBar(human);
   computer = new Player('computer', chosenLevel);// needs a Char and LvL?
   placeHealthBar(computer);
-  fireUpTimer();
+  // fireUpTimer();
 }
 //display questions
-function getQuestion(questions, questionNumber) {
+function getQuestion() {
   var questionElement = document.getElementById('questionContainer');
-  var questionContainer = document.createElement('div');
-  questionContainer.textContent = questions[questionNumber].question;
-  questionElement.appendChild(questionContainer);
+  questionElement.textContent = questions[questionNumber].question;
   var answerElement = document.getElementById('answersContainer');
   var answerContainer = document.createElement('input');
   var answerInputElements = [document.getElementById('answerOne'), document.getElementById('answerTwo'), document.getElementById('answerThree')];
@@ -91,10 +88,13 @@ function getQuestion(questions, questionNumber) {
     botAns = getRandomIndex();
   }
   var allAns = [topAns, midAns, botAns];
+  console.log('answerInputElements: ', answerInputElements);
+  console.log('questions: ', questions);
+  console.log('questionNumber: ', questionNumber);
   for (var k = 0; k < answerInputElements.length; k++) {
     answerInputElements[k].textContent = questions[questionNumber].answers[allAns[k]];
   }
-  questionNumber++;
+  // questionNumber++;
   function getRandomIndex() {
     return Math.floor(Math.random() * (answerInputElements.length));
   }
@@ -111,10 +111,9 @@ function submitAnswer(){
     //console.log('radio ans at i', radioAnswers[i]);
     var radioAns = document.getElementById(radioAnswers[i]);
     var radioLables = document.getElementById(labelIds[i]);
-    console.log('radio answers ', radioAns.textContent);
-    console.log('one.answers ', one.answers[0]);
+
     if(radioAns.checked){
-      if (radioLables.textContent === one.answers[0]){
+      if (radioLables.textContent === questions[questionNumber].answers[0]){
         //punch the computer
         console.log('Punch the computer');
         displayHit();
@@ -128,7 +127,8 @@ function submitAnswer(){
     }
     clearInterval(tick);//Remove timer to prevent memory leak
   }
-  questions[i]++;
+  questionNumber++;
+  getQuestion();
 }
 var radioElement = document.getElementById('answersContainer');
 radioElement.addEventListener('submit', submitAnswer);
