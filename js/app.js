@@ -7,7 +7,7 @@ var chosenChar;
 var chosenLevel;
 var human;
 var computer;
-var timeLimit = 5; // in Seconds for question
+var timeLimit = 20; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 var haveWinner = false;
@@ -129,10 +129,13 @@ function submitAnswer(){
         //the computer punches you
         console.log('You have been hit!');
         displayHit(human);
+        break;
       }
     } else {
-      console.log('answer not checked ', answersContainer);
-      return;
+      console.log('answer at index ' + i + ' not checked ');
+      if (i === 2){
+        return;
+      }
     }
   }
   questionNumber++;
@@ -221,17 +224,11 @@ function handleWinLoss(player){
     if (player.isHuman === true) {
       var overlay = document.getElementById('loser-overlay');
       overlay.setAttribute('style', 'display: block');
-      console.log('Should see Ely loss overlay');
+      console.log('You Lose! and see Lindsay...');
     } else {
       var overlay = document.getElementById('winner-overlay');
       overlay.setAttribute('style', 'display: block');
-      console.log('You win and see lindsay');
-    }
-    var overlaytime = setInterval(overlayEnd, 6000);
-    function overlayEnd(){
-      overlay.setAttribute('style', 'display: none');
-      clearInterval(overlaytime);
-      console.log('Clearing Overlay');
+      console.log('You Win! and see Ely...');
     }
     haveWinner = true;
   }
