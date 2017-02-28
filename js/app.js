@@ -110,7 +110,7 @@ function submitAnswer(){
 
     console.log('radio answers ', radioAns.textContent);
     console.log('this.answers ', one.answers[0]);
-    if(radioAns.checked === true){
+    if(radioAns.checked){
       if (radioAns.textContent === one.answers[0]){
         //punch the computer
         console.log('Punch the computer');
@@ -121,9 +121,9 @@ function submitAnswer(){
         displayHit();
       }
     }else{
-      console.log('answer not checked ', radioAns.value);
+      console.log('answer not checked ', radioAns[i].checked);
     }
-    clearInterval(tick);//Remove timer to prevent memory leak
+    //clearInterval(tick);//Remove timer to prevent memory leak
   }
   questions[i]++;
 }
