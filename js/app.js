@@ -70,7 +70,7 @@ function handleSubmit (event){
   //call saveToLocalStorage, placeHealthBar, fireUpTimer
   saveToLocalStorage(currentUserStats);
   placeHealthBar(computer);
-  // fireUpTimer();
+  fireUpTimer();
 }
 //display questions
 function getQuestion() {
@@ -119,12 +119,12 @@ function submitAnswer(){
       if (radioLables.textContent === questions[questionNumber].answers[0]){
         //punch the computer
         console.log('Punch the computer');
-        displayHit();
+        displayHit(computer);
         break;
       } else {
         //the computer punches you
         console.log('You have been hit!');
-        displayHit();
+        displayHit(human);
       }
     } else {
       console.log('answer not checked ', answersContainer);
@@ -167,12 +167,13 @@ function fireUpTimer(){
     if (countDown === 0){
       console.log('pow!!');
       clearInterval(tick);
-      displayHit();
+      displayHit(human);
     }
   }
 }
 
-function displayHit(){
+function displayHit(player){
+  player.health--;
   var overlay = document.getElementById('overlay-animations');
   overlay.setAttribute('style', 'display: block');
   console.log('Should see overlay');
@@ -182,6 +183,8 @@ function displayHit(){
     clearInterval(overlaytime);
     console.log('Clearing Overlay');
   }
+  placeHealthBar(player);
+  handleWinLoss(player);
 }
 
 //save user info to local storage
@@ -190,4 +193,26 @@ function saveToLocalStorage(currentUserStats){
   localStorage.itemObjects = JSON.stringify(currentUserStats);
 
   console.log('Saved; ', localStorage, 'to localStorage');
+}
+
+// checking to see if either opponets health is 0
+function handleWinLoss(player){
+  if (player.health === 0) {
+    // debugger;
+    var overlay = document.getElementById('overlay-animations');
+    if (player.isHuman === true) {
+      overlay.setAttribute('style', 'background: url("../img/ely.png")');
+      console.log('Should see Ely loss overlay');
+    } else {
+      overlay.setAttribute('style', 'background: url("../img/lindsay.png")');
+      console.log('You win and see lindsay');
+    }
+    overlay.setAttribute('style', 'display: block');
+    var overlaytime = setInterval(overlayEnd, 6000);
+    function overlayEnd(){
+      overlay.setAttribute('style', 'display: none');
+      clearInterval(overlaytime);
+      console.log('Clearing Overlay');
+    }
+  }
 }
