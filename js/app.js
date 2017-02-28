@@ -7,7 +7,6 @@ var human;
 var computer;
 var timeLimit = 5; // in Seconds for question
 var overlayDuration = 5000; //in Milsecs
-var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -50,6 +49,7 @@ function handleSubmit (event){
     var radio = document.getElementById(characters[i]);
     if (radio.checked === true){
       chosenChar = radio.value;
+      console.log('radio value',radio.checked);
     }
   }
   for (var i = 0; i < levels.length; i++) {
@@ -103,15 +103,16 @@ formElement.addEventListener('submit', handleSubmit);
 function submitAnswer(){
   event.preventDefault();
   event.stopPropagation();
-  var radioAnswers = ['answerOne', 'answerTwo', 'answerThree'];
+  var radioAnswers = ['ansOne', 'ansTwo', 'ansThree'];
+  var labelIds = ['answerOne', 'answerTwo', 'answerThree'];
   for (var i = 0; i < radioAnswers.length; i++) {
     //console.log('radio ans at i', radioAnswers[i]);
     var radioAns = document.getElementById(radioAnswers[i]);
-
+    var radioLables = document.getElementById(labelIds[i]);
     console.log('radio answers ', radioAns.textContent);
-    console.log('this.answers ', one.answers[0]);
+    console.log('one.answers ', one.answers[0]);
     if(radioAns.checked){
-      if (radioAns.textContent === one.answers[0]){
+      if (radioLables.textContent === one.answers[0]){
         //punch the computer
         console.log('Punch the computer');
         displayHit();
@@ -120,8 +121,8 @@ function submitAnswer(){
         console.log('You have been hit!');
         displayHit();
       }
-    }else{
-      console.log('answer not checked ', radioAns[i].checked);
+    } else {
+      console.log('answer not checked ', answersContainer);
     }
     //clearInterval(tick);//Remove timer to prevent memory leak
   }
