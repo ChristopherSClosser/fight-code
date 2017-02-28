@@ -61,9 +61,6 @@ function handleSubmit (event){
   var userName = event.target.pickName.value;
   console.log(userName, chosenChar, chosenLevel);
   getQuestion(questions, questionNumber);
-  var userName = event.target.pickName.value;
-  console.log('form data', userName, chosenChar, chosenLevel);
-  getQuestion(questions, questionNumber);
   human = new Player(userName, chosenLevel, chosenChar);
   human.isHuman = true;
   placeHealthBar(human);
