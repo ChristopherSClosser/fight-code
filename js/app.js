@@ -5,7 +5,7 @@ var chosenChar;
 var chosenLevel;
 var human;
 var computer;
-var timeLimit = 20; // in Seconds for question
+var timeLimit = 5; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 
@@ -173,6 +173,9 @@ function fireUpTimer(){
       console.log('pow!!');
       clearInterval(tick);
       displayHit(human);
+      questionNumber++;
+      getQuestion();
+      fireUpTimer();
     }
   }
 }
