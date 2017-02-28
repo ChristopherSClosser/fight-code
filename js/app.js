@@ -7,6 +7,7 @@ var human;
 var computer;
 var timeLimit = 5; // in Seconds for question
 var overlayDuration = 5000; //in Milsecs
+var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -59,9 +60,6 @@ function handleSubmit (event){
   }
   var userName = event.target.pickName.value;
   console.log(userName, chosenChar, chosenLevel);
-  getQuestion(questions, questionNumber);
-  var userName = event.target.pickName.value;
-  console.log('form data', userName, chosenChar, chosenLevel);
   getQuestion(questions, questionNumber);
   human = new Player(userName, chosenLevel, chosenChar);
   human.isHuman = true;
