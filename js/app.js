@@ -10,6 +10,7 @@ var computer;
 var timeLimit = 5; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
+var haveWinner = false;
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -46,13 +47,13 @@ function Question(question, answers) {
 function handleSubmit (event){
   event.preventDefault();
   event.stopPropagation();
-  console.log(event);
+  // console.log(event);
 
   for (var i = 0; i < characters.length; i++) {
     var radio = document.getElementById(characters[i]);
     if (radio.checked === true){
       chosenChar = radio.value;
-      console.log('radio value',radio.checked);
+      // console.log('radio value',radio.checked);
     }
   }
   for (var i = 0; i < levels.length; i++) {
@@ -62,8 +63,8 @@ function handleSubmit (event){
     }
   }
   var userName = event.target.pickName.value;
-  console.log(userName, chosenChar, chosenLevel);
-  getQuestion(questions, questionNumber);
+  // console.log(userName, chosenChar, chosenLevel);
+  getQuestion();
   human = new Player(userName, chosenLevel, chosenChar);
   human.isHuman = true;
   placeHealthBar(human);
@@ -76,6 +77,10 @@ function handleSubmit (event){
 }
 //display questions
 function getQuestion() {
+  if (haveWinner){
+    clearInterval(tick);
+    return;
+  }
   var questionElement = document.getElementById('questionContainer');
   questionElement.textContent = questions[questionNumber].question;
   var answerElement = document.getElementById('answersContainer');
@@ -93,9 +98,9 @@ function getQuestion() {
     botAns = getRandomIndex();
   }
   var allAns = [topAns, midAns, botAns];
-  console.log('answerInputElements: ', answerInputElements);
-  console.log('questions: ', questions);
-  console.log('questionNumber: ', questionNumber);
+  // console.log('answerInputElements: ', answerInputElements);
+  // console.log('questions: ', questions);
+  // console.log('questionNumber: ', questionNumber);
   for (var k = 0; k < answerInputElements.length; k++) {
     answerInputElements[k].textContent = questions[questionNumber].answers[allAns[k]];
   }
@@ -131,8 +136,8 @@ function submitAnswer(){
     }
   }
   questionNumber++;
-  getQuestion();
   clearInterval(tick);//Remove timer to prevent memory leak
+  getQuestion();
   fireUpTimer();
   //set radio buttons to unchecked
   uncheckRadio();
@@ -164,6 +169,9 @@ function placeHealthBar(player){
 }
 
 function fireUpTimer(){
+  if (haveWinner){
+    return;
+  }
   var countDown = timeLimit;
   var timerElement = document.getElementById('timer');
   tick = setInterval(changeSeconds, 1000);
@@ -187,12 +195,12 @@ function displayHit(player){
   player.health--;
   var overlay = document.getElementById('overlay-animations');
   overlay.setAttribute('style', 'display: block');
-  console.log('Should see overlay');
+  // console.log('Should see overlay');
   var overlaytime = setInterval(overlayEnd, overlayDuration);
   function overlayEnd(){
     overlay.setAttribute('style', 'display: none');
     clearInterval(overlaytime);
-    console.log('Clearing Overlay');
+    // console.log('Clearing Overlay');
   }
   placeHealthBar(player);
   handleWinLoss(player);
@@ -203,27 +211,28 @@ function saveToLocalStorage(currentUserStats){
   //user name, character, and difficuly
   localStorage.itemObjects = JSON.stringify(currentUserStats);
 
-  console.log('Saved; ', localStorage, 'to localStorage');
+  // console.log('Saved; ', localStorage, 'to localStorage');
 }
 
 // checking to see if either opponets health is 0
 function handleWinLoss(player){
   if (player.health === 0) {
     // debugger;
-    var overlay = document.getElementById('overlay-animations');
     if (player.isHuman === true) {
-      overlay.setAttribute('style', 'background: url("../img/ely.png")');
+      var overlay = document.getElementById('loser-overlay');
+      overlay.setAttribute('style', 'display: block');
       console.log('Should see Ely loss overlay');
     } else {
-      overlay.setAttribute('style', 'background: url("../img/lindsay.png")');
+      var overlay = document.getElementById('winner-overlay');
+      overlay.setAttribute('style', 'display: block');
       console.log('You win and see lindsay');
     }
-    overlay.setAttribute('style', 'display: block');
     var overlaytime = setInterval(overlayEnd, 6000);
     function overlayEnd(){
       overlay.setAttribute('style', 'display: none');
       clearInterval(overlaytime);
       console.log('Clearing Overlay');
     }
+    haveWinner = true;
   }
 }
