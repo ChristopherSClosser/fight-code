@@ -134,6 +134,11 @@ function submitAnswer(){
   getQuestion();
   clearInterval(tick);//Remove timer to prevent memory leak
   fireUpTimer();
+
+  //set radio buttons to unchecked
+  for (var i = 0; i < radioAnswers.length; i++) {
+    document.getElementById(radioAnswers[i]).checked = false;
+  }
 }
 
 var radioElement = document.getElementById('answersContainer');
