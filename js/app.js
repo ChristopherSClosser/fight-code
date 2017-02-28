@@ -32,6 +32,8 @@ function Player(name, difficuly, fighter){
   this.character = fighter;
   this.health = 5;
 }
+
+//question constructor
 function Question(question, answers) {
   this.question = question;
   this.answers = answers;
@@ -101,22 +103,31 @@ var formElement = document.getElementById('entry-form');
 formElement.addEventListener('submit', handleSubmit);
 
 function submitAnswer(){
+  event.preventDefault();
+  event.stopPropagation();
   var radioAnswers = ['answerOne', 'answerTwo', 'answerThree'];
   for (var i = 0; i < radioAnswers.length; i++) {
-    console.log('radio ans at i', radioAnswers[i]);
+    //console.log('radio ans at i', radioAnswers[i]);
     var radioAns = document.getElementById(radioAnswers[i]);
-    if (radioAns.checked === this.correctAnswer){
-      //punch the computer
-      displayHit();
-      console.log('Punch the computer');
-    } else {
-      //the computer punches you
-      displayHit();
-      console.log('You have been hit!');
+
+    console.log('radio answers ', radioAns.textContent);
+    console.log('this.answers ', one.answers[0]);
+    if(radioAns.checked === true){
+      if (radioAns.textContent === one.answers[0]){
+        //punch the computer
+        console.log('Punch the computer');
+        displayHit();
+      } else {
+        //the computer punches you
+        console.log('You have been hit!');
+        displayHit();
+      }
+    }else{
+      console.log('answer not checked ', radioAns.value);
     }
     clearInterval(tick);//Remove timer to prevent memory leak
   }
-  questions[i] += 1;
+  questions[i]++;
 }
 var radioElement = document.getElementById('answersContainer');
 radioElement.addEventListener('submit', submitAnswer);
