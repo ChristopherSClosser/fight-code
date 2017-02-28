@@ -66,6 +66,9 @@ function handleSubmit (event){
   human.isHuman = true;
   placeHealthBar(human);
   computer = new Player('computer', chosenLevel);// needs a Char and LvL?
+  var currentUserStats = [human.name, chosenChar, chosenLevel];
+  //call saveToLocalStorage, placeHealthBar, fireUpTimer
+  saveToLocalStorage(currentUserStats);
   placeHealthBar(computer);
   // fireUpTimer();
 }
@@ -117,6 +120,7 @@ function submitAnswer(){
         //punch the computer
         console.log('Punch the computer');
         displayHit();
+        break;
       } else {
         //the computer punches you
         console.log('You have been hit!');
@@ -125,11 +129,13 @@ function submitAnswer(){
     } else {
       console.log('answer not checked ', answersContainer);
     }
-    clearInterval(tick);//Remove timer to prevent memory leak
   }
   questionNumber++;
   getQuestion();
+  clearInterval(tick);//Remove timer to prevent memory leak
+  fireUpTimer();
 }
+
 var radioElement = document.getElementById('answersContainer');
 radioElement.addEventListener('submit', submitAnswer);
 
@@ -176,4 +182,12 @@ function displayHit(){
     clearInterval(overlaytime);
     console.log('Clearing Overlay');
   }
+}
+
+//save user info to local storage
+function saveToLocalStorage(currentUserStats){
+  //user name, character, and difficuly
+  localStorage.itemObjects = JSON.stringify(currentUserStats);
+
+  console.log('Saved; ', localStorage, 'to localStorage');
 }
