@@ -132,7 +132,7 @@ function submitAnswer(){
       }
     } else {
       console.log('answer not checked ', answersContainer);
-      displayHit(human);
+      return;
     }
   }
   questionNumber++;
