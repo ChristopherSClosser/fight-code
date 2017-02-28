@@ -31,7 +31,29 @@ function Question(question, answers) {
   this.answers = answers;
   this.correctAnswer = answers[0];
 }
+//for creating character
+function handleSubmit (event){
+  event.preventDefault();
+  event.stopPropagation();
+  console.log(event);
 
+  for (var i = 0; i < characters.length; i++) {
+    var radio = document.getElementById(characters[i]);
+    if (radio.checked === true){
+      chosenChar = radio.value;
+    }
+  }
+  for (var i = 0; i < levels.length; i++) {
+    var radio = document.getElementById(levels[i]);
+    if (radio.checked === true){
+      chosenLevel = radio.value;
+    }
+  }
+  var userName = event.target.pickName.value;
+  console.log(userName, chosenChar, chosenLevel);
+  getQuestion(questions, questionNumber);
+}
+//display questions
 function getQuestion(questions, questionNumber) {
   var questionElement = document.getElementById('questionContainer');
   var questionContainer = document.createElement('div');
@@ -60,29 +82,24 @@ function getQuestion(questions, questionNumber) {
     return Math.floor(Math.random() * (answerInputElements.length));
   }
 }
-
 var formElement = document.getElementById('entry-form');
-
 formElement.addEventListener('submit', handleSubmit);
 
-function handleSubmit (event){
-  event.preventDefault();
-  event.stopPropagation();
-  console.log(event);
-
-  for (var i = 0; i < characters.length; i++) {
-    var radio = document.getElementById(characters[i]);
-    if (radio.checked === true){
-      chosenChar = radio.value;
+function submitAnswer(){
+  var radioAnswers = ['answerOne', 'answerTwo', 'answerThree'];
+  for (var i = 0; i < radioAnswers.length; i++) {
+    console.log('radio ans at i', radioAnswers[i]);
+    var radioAns = document.getElementById(radioAnswers[i]);
+    if (radioAns.checked === this.correctAnswer){
+      //punch the computer
+      console.log('Punch the computer');
+    } else {
+      //the computer punches you
+      console.log('You have been hit!');
     }
   }
-  for (var i = 0; i < levels.length; i++) {
-    var radio = document.getElementById(levels[i]);
-    if (radio.checked === true){
-      chosenLevel = radio.value;
-    }
-  }
-  var userName = event.target.pickName.value;
-  console.log(userName, chosenChar, chosenLevel);
-  getQuestion(questions, questionNumber);
+  questions[i] += 1;
+  // getQuestion();
 }
+var radioElement = document.getElementById('answersContainer');
+radioElement.addEventListener('submit', submitAnswer);
