@@ -30,7 +30,7 @@ var nine = new Question('What is the proper syntax for writing a comment in HTML
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
-var bossQuestions = []; // need some questions here
+var bossQuestions = [one, two, three]; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
@@ -106,6 +106,7 @@ function getQuestion() {
   var answerContainer = document.createElement('input');
   var answerInputElements = [document.getElementById('answerOne'), document.getElementById('answerTwo'), document.getElementById('answerThree')];
   var answerLabel = document.createElement('label');
+
   //Set up variables for answers
   var topAns = getRandomIndex();
   var midAns = getRandomIndex();
@@ -121,12 +122,31 @@ function getQuestion() {
     answerInputElements[k].textContent = questions[questionNumber].answers[allAns[k]];
   }
   // questionNumber++;
+  //display questions in random order
+
+  //display answers in random order
   function getRandomIndex() {
     return Math.floor(Math.random() * (answerInputElements.length));
   }
 }
 var formElement = document.getElementById('entry-form');
 formElement.addEventListener('submit', handleSubmit);
+
+function shuffleArrayInPlace(questions) {
+  var i = 9;
+  var j, temp;
+  while (i >= 1) {
+    j = Math.floor( Math.random() * ( i + 1 ) ); // random element up to i, inclusive
+    // swap i j
+    temp = questions[i];
+    questions[i] = questions[j];
+    questions[j] = temp;
+    i--;
+  }
+  return questions;
+}
+
+//console.log(shuffleArrayInPlace(questions));
 
 function submitAnswer(){
   event.preventDefault();
@@ -222,7 +242,6 @@ function displayHit(player){
   function overlayEnd(){
     overlay.setAttribute('style', 'display: none');
     clearInterval(overlaytime);
-    // console.log('Clearing Overlay');
   }
   placeHealthBar(player);
   handleWinLoss(player);
@@ -232,8 +251,6 @@ function displayHit(player){
 function saveToLocalStorage(currentUserStats){
   //user name, character, and difficuly
   localStorage.itemObjects = JSON.stringify(currentUserStats);
-
-  // console.log('Saved; ', localStorage, 'to localStorage');
 }
 
 // checking to see if either opponets health is 0
@@ -262,10 +279,9 @@ function summonBoss(){
   compPic.src = 'img/adam-boss.png';
   winnerOverlay.setAttribute('style', 'z-index: 9');
   cumputer.health = 6;
+  placeHealthBar(computer);
   player.health = 5;
+  placeHealthBar(human);
   questions = bossQuestions;// grab new questions
-
-  // reset timer
-
-
+  fireUpTimer();
 }
