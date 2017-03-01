@@ -20,11 +20,13 @@ header {
     border: none;
     cursor: pointer;
     font-family: 'Press Start 2P', cursive;
+
   }
   .dropdown {
     position: relative;;
     display: inline-block;
-    margin-left: 1200px;
+    float: right;
+    margin-right: 55px;
   }
   .dropdown-content {
     display: none;
