@@ -16,6 +16,7 @@ var oppenentPic = 'img/computeropp.png';
 var fightingBoss = false;
 var winnerOverlay = document.getElementById('winner-overlay');
 var loserOverlay = document.getElementById('loser-overlay');
+var bossFight = document.getElementById('bossFight');
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -29,8 +30,13 @@ var eight = new Question('Which of the following is an example of semantic HTML?
 var nine = new Question('What is the proper syntax for writing a comment in HTML?', ['<!-- Insert comment here. -->', '// Insert comment here.', '<-- Insert  comment here. -->']);
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
 
+//Boss questions
+var bossOne = new Question('img/qOne', ['[2,1,1]', '[2,1,2]', '[2,undefined,1]']);
+var bossTwo = new Question('img/qTwo', ['["outer", "outer"]', '["inner", "outer"]', 'Error']);
+var bossThree = new Question('img/qThree', ['3', '2', 'Error']);
+
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
-var bossQuestions = []; // need some questions here
+var bossQuestions = [bossOne, bossTwo, bossThree]; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
@@ -40,7 +46,7 @@ function Player(name, difficuly, fighter){
   this.isHuman = false;
   this.difficuly = difficuly;
   this.character = fighter;
-  this.health = 5;
+  this.health = 1;
 }
 
 //question constructor
@@ -96,7 +102,7 @@ function getQuestion() {
   if (haveWinner){
     clearInterval(tick);
     if (computer.health === 0) {
-      summonBoss();
+      playBossLevel();
     }
     return;
   }
@@ -121,7 +127,6 @@ function getQuestion() {
   for (var k = 0; k < answerInputElements.length; k++) {
     answerInputElements[k].textContent = questions[questionNumber].answers[allAns[k]];
   }
-  // questionNumber++;
   //display questions in random order
 
   //display answers in random order
@@ -146,7 +151,9 @@ function shuffleArrayInPlace(questions) {
   return questions;
 }
 
-console.log(shuffleArrayInPlace(questions));
+
+shuffleArrayInPlace(questions);
+
 
 function submitAnswer(){
   event.preventDefault();
@@ -242,7 +249,6 @@ function displayHit(player){
   function overlayEnd(){
     overlay.setAttribute('style', 'display: none');
     clearInterval(overlaytime);
-    // console.log('Clearing Overlay');
   }
   placeHealthBar(player);
   handleWinLoss(player);
@@ -252,8 +258,6 @@ function displayHit(player){
 function saveToLocalStorage(currentUserStats){
   //user name, character, and difficuly
   localStorage.itemObjects = JSON.stringify(currentUserStats);
-
-  // console.log('Saved; ', localStorage, 'to localStorage');
 }
 
 // checking to see if either opponets health is 0
@@ -275,17 +279,24 @@ function hideEntryForm(){
   var entryForm = document.getElementById('entry-form');
   entryForm.setAttribute('style', 'display: none');
 }
-
+// boss fight start
+function playBossLevel(){
+  bossFight.addEventListener('click', summonBoss);
+  bossFight.setAttribute('style', 'z-index: 99');
+}
 function summonBoss(){
   fightingBoss = true;
   haveWinner = false;
   compPic.src = 'img/adam-boss.png';
-  winnerOverlay.setAttribute('style', 'z-index: 9');
-  cumputer.health = 6;
-  player.health = 5;
+  winnerOverlay.setAttribute('style', 'z-index: -9');
+  bossFight.setAttribute('style', 'z-index: -9');
+
+  computer.health = 6;
+  placeHealthBar(computer);
+  human.health = 5;
+  placeHealthBar(human);
+  questionNumber = 0;
   questions = bossQuestions;// grab new questions
-
-  // reset timer
-
-
+  // shuffleArrayInPlace(questions);
+  fireUpTimer();
 }
