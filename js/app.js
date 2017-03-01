@@ -120,9 +120,6 @@ function getQuestion() {
   }
   // questionNumber++;
   //display questions in random order
-  function getRandomQuestion(){
-    return Math.floor(Math.random() * (questions.length));
-  }
 
   //display answers in random order
   function getRandomIndex() {
@@ -131,6 +128,22 @@ function getQuestion() {
 }
 var formElement = document.getElementById('entry-form');
 formElement.addEventListener('submit', handleSubmit);
+
+function shuffleArrayInPlace(questions) {
+  var i = 9;
+  var j, temp;
+  while (i >= 1) {
+    j = Math.floor( Math.random() * ( i + 1 ) ); // random element up to i, inclusive
+    // swap i j
+    temp = questions[i];
+    questions[i] = questions[j];
+    questions[j] = temp;
+    i--;
+  }
+  return questions;
+}
+
+//console.log(shuffleArrayInPlace(questions));
 
 function submitAnswer(){
   event.preventDefault();
