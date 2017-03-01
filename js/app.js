@@ -229,11 +229,11 @@ function handleWinLoss(player){
     // debugger;
     if (player.isHuman === true) {
       var overlay = document.getElementById('loser-overlay');
-      overlay.setAttribute('style', 'display: block');
+      overlay.setAttribute('style', 'z-index: 9');
       console.log('You Lose! and see Lindsay...');
     } else {
       var overlay = document.getElementById('winner-overlay');
-      overlay.setAttribute('style', 'display: block');
+      overlay.setAttribute('style', 'z-index: 9');
       console.log('You Win! and see Ely...');
     }
     haveWinner = true;
