@@ -146,7 +146,7 @@ function shuffleArrayInPlace(questions) {
   return questions;
 }
 
-//console.log(shuffleArrayInPlace(questions));
+shuffleArrayInPlace(questions);
 
 function submitAnswer(){
   event.preventDefault();
