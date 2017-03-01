@@ -30,7 +30,7 @@ var nine = new Question('What is the proper syntax for writing a comment in HTML
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
-var bossQuestions = []; // need some questions here
+var bossQuestions = [one, two, three]; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
@@ -242,7 +242,6 @@ function displayHit(player){
   function overlayEnd(){
     overlay.setAttribute('style', 'display: none');
     clearInterval(overlaytime);
-    // console.log('Clearing Overlay');
   }
   placeHealthBar(player);
   handleWinLoss(player);
@@ -252,8 +251,6 @@ function displayHit(player){
 function saveToLocalStorage(currentUserStats){
   //user name, character, and difficuly
   localStorage.itemObjects = JSON.stringify(currentUserStats);
-
-  // console.log('Saved; ', localStorage, 'to localStorage');
 }
 
 // checking to see if either opponets health is 0
@@ -282,10 +279,9 @@ function summonBoss(){
   compPic.src = 'img/adam-boss.png';
   winnerOverlay.setAttribute('style', 'z-index: 9');
   cumputer.health = 6;
+  placeHealthBar(computer);
   player.health = 5;
+  placeHealthBar(human);
   questions = bossQuestions;// grab new questions
-
-  // reset timer
-
-
+  fireUpTimer();
 }
