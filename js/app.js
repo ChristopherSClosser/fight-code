@@ -105,6 +105,7 @@ function getQuestion() {
     if (computer.health === 0 && !bossHasPlayed) {
       playBossLevel();
     }
+
     return;
   }
   var questionElement = document.getElementById('questionContainer');
