@@ -14,6 +14,7 @@ var haveWinner = false;
 var compPic = document.getElementById('compPic');
 var oppenentPic = 'img/computeropp.png';
 var fightingBoss = false;
+var bossHasPlayed = false;
 var winnerOverlay = document.getElementById('winner-overlay');
 var loserOverlay = document.getElementById('loser-overlay');
 var bossFight = document.getElementById('bossFight');
@@ -36,7 +37,7 @@ var bossTwo = new Question('img/qTwo', ['["outer", "outer"]', '["inner", "outer"
 var bossThree = new Question('img/qThree', ['3', '2', 'Error']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
-var bossQuestions = [bossOne, bossTwo, bossThree]; // need some questions here
+var bossQuestions = [bossOne, bossTwo, bossThree, bossOne, bossTwo, bossThree]; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
@@ -101,7 +102,7 @@ function handleSubmit (event){
 function getQuestion() {
   if (haveWinner){
     clearInterval(tick);
-    if (computer.health === 0) {
+    if (computer.health === 0 && !bossHasPlayed) {
       playBossLevel();
     }
     return;
@@ -151,9 +152,7 @@ function shuffleArrayInPlace(questions) {
   return questions;
 }
 
-
 shuffleArrayInPlace(questions);
-
 
 function submitAnswer(){
   event.preventDefault();
@@ -287,6 +286,7 @@ function playBossLevel(){
 function summonBoss(){
   fightingBoss = true;
   haveWinner = false;
+  bossHasPlayed = true;
   compPic.src = 'img/adam-boss.png';
   winnerOverlay.setAttribute('style', 'z-index: -9');
   bossFight.setAttribute('style', 'z-index: -9');
@@ -297,6 +297,6 @@ function summonBoss(){
   placeHealthBar(human);
   questionNumber = 0;
   questions = bossQuestions;// grab new questions
-  // shuffleArrayInPlace(questions);
+  getQuestion();
   fireUpTimer();
 }
