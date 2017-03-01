@@ -32,9 +32,9 @@ var nine = new Question('What is the proper syntax for writing a comment in HTML
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
 
 //Boss questions
-var bossOne = new Question('img/qOne', ['[2,1,1]', '[2,1,2]', '[2,undefined,1]']);
-var bossTwo = new Question('img/qTwo', ['["outer", "outer"]', '["inner", "outer"]', 'Error']);
-var bossThree = new Question('img/qThree', ['3', '2', 'Error']);
+var bossOne = new Question('What does the following block of code evaluate to?', ['[2,1,1]', '[2,1,2]', '[2,undefined,1]']);
+var bossTwo = new Question('What does the following block of code evaluate to?', ['["outer", "outer"]', '["inner", "outer"]', 'Error']);
+var bossThree = new Question('What does the following block of code evaluate to?', ['3', '2', 'Error']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
 var bossQuestions = [bossOne, bossTwo, bossThree, bossOne, bossTwo, bossThree]; // need some questions here
@@ -56,7 +56,6 @@ function Question(question, answers) {
   this.answers = answers;
   this.correctAnswer = answers[0];
 }
-
 //for creating character
 function handleSubmit (event){
   event.preventDefault();
@@ -110,6 +109,17 @@ function getQuestion() {
   }
   var questionElement = document.getElementById('questionContainer');
   questionElement.textContent = questions[questionNumber].question;
+  if (bossHasPlayed) {
+    while (questionElement.firstChild) {
+      questionElement.removeChild(questionElement.firstChild);
+    }
+    var newQuestionText = document.createElement('div');
+    newQuestionText.textContent = questions[questionNumber].question;
+    questionElement.appendChild(newQuestionText);
+    var imageElement = document.createElement('img');
+    imageElement.src = 'img/q' + questionNumber + '.png';
+    questionElement.appendChild(imageElement);
+  }
   var answerElement = document.getElementById('answersContainer');
   var answerContainer = document.createElement('input');
   var answerInputElements = [document.getElementById('answerOne'), document.getElementById('answerTwo'), document.getElementById('answerThree')];
