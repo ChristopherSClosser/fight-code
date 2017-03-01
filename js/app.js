@@ -16,6 +16,7 @@ var oppenentPic = 'img/computeropp.png';
 var fightingBoss = false;
 var winnerOverlay = document.getElementById('winner-overlay');
 var loserOverlay = document.getElementById('loser-overlay');
+var bossFight = document.getElementById('bossFight');
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -40,7 +41,7 @@ function Player(name, difficuly, fighter){
   this.isHuman = false;
   this.difficuly = difficuly;
   this.character = fighter;
-  this.health = 5;
+  this.health = 1;
 }
 
 //question constructor
@@ -96,7 +97,7 @@ function getQuestion() {
   if (haveWinner){
     clearInterval(tick);
     if (computer.health === 0) {
-      summonBoss();
+      playBossLevel();
     }
     return;
   }
@@ -121,7 +122,6 @@ function getQuestion() {
   for (var k = 0; k < answerInputElements.length; k++) {
     answerInputElements[k].textContent = questions[questionNumber].answers[allAns[k]];
   }
-  // questionNumber++;
   //display questions in random order
 
   //display answers in random order
@@ -272,16 +272,24 @@ function hideEntryForm(){
   var entryForm = document.getElementById('entry-form');
   entryForm.setAttribute('style', 'display: none');
 }
-
+// boss fight start
+function playBossLevel(){
+  bossFight.addEventListener('click', summonBoss);
+  bossFight.setAttribute('style', 'z-index: 99');
+}
 function summonBoss(){
   fightingBoss = true;
   haveWinner = false;
   compPic.src = 'img/adam-boss.png';
-  winnerOverlay.setAttribute('style', 'z-index: 9');
-  cumputer.health = 6;
+  winnerOverlay.setAttribute('style', 'z-index: -9');
+  bossFight.setAttribute('style', 'z-index: -9');
+
+  computer.health = 6;
   placeHealthBar(computer);
-  player.health = 5;
+  human.health = 5;
   placeHealthBar(human);
+  questionNumber = 0;
   questions = bossQuestions;// grab new questions
+  // shuffleArrayInPlace(questions);
   fireUpTimer();
 }
