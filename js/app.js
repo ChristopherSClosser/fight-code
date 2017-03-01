@@ -23,7 +23,7 @@ var five = new Question('How can you add a comment in a JavaScript?', ['//This i
 var six = new Question('What command is used to exit out of a function in JavaScript?', ['return ;', 'console.log();', 'prompt();']);
 var seven = new Question('Which tag in HTML does not require a closing tag?', ['img tag', 'p tag', 'section tag']);
 var eight = new Question('Which of the following is an example of semantic HTML?',['<em> </em>', '<b> </b>', '<p> </p>']);
-var nine = new Question('What is the proper syntax for writing a comment in HTML?', ['// Insert comment here.', '<!-- Insert comment here. -->', '<-- Insert  comment here. -->']);
+var nine = new Question('What is the proper syntax for writing a comment in HTML?', ['<!-- Insert comment here. -->', '// Insert comment here.', '<-- Insert  comment here. -->']);
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
