@@ -30,8 +30,13 @@ var eight = new Question('Which of the following is an example of semantic HTML?
 var nine = new Question('What is the proper syntax for writing a comment in HTML?', ['<!-- Insert comment here. -->', '// Insert comment here.', '<-- Insert  comment here. -->']);
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
 
+//Boss questions
+var bossOne = new Question('img/qOne', ['[2,1,1]', '[2,1,2]', '[2,undefined,1]']);
+var bossTwo = new Question('img/qTwo', ['["outer", "outer"]', '["inner", "outer"]', 'Error']);
+var bossThree = new Question('img/qThree', ['3', '2', 'Error']);
+
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
-var bossQuestions = [one, two, three]; // need some questions here
+var bossQuestions = [bossOne, bossTwo, bossThree]; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
