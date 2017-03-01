@@ -79,6 +79,7 @@ function handleSubmit (event){
   saveToLocalStorage(currentUserStats);
   placeHealthBar(computer);
   fireUpTimer();
+  hideEntryForm();
 }
 //display questions
 function getQuestion() {
@@ -237,4 +238,9 @@ function handleWinLoss(player){
     }
     haveWinner = true;
   }
+}
+// this hides the entry form on submit.
+function hideEntryForm(){
+  var entryForm = document.getElementById('entry-form');
+  entryForm.setAttribute('style', 'display: none');
 }
