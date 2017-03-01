@@ -17,35 +17,35 @@ header {
   width: 100%;
 }
 .dropbtn {
-    background-color: #F22B29;
-    color: black;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Press Start 2P', cursive;
+  background-color: #F22B29;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
 
-  }
-  .dropdown {
-    position: relative;;
-    display: inline-block;
-    float: right;
-    margin-right: 55px;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-family: 'Press Start 2P', cursive;
+}
+.dropdown {
+  position: relative;;
+  display: inline-block;
+  float: right;
+  margin-right: 55px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Press Start 2P', cursive;
 
 }
 .dropdown-content a:hover {
