@@ -151,7 +151,9 @@ function shuffleArrayInPlace(questions) {
   return questions;
 }
 
+
 shuffleArrayInPlace(questions);
+
 
 function submitAnswer(){
   event.preventDefault();
