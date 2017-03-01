@@ -98,8 +98,8 @@ label img{
   background: red;
   position: absolute;
   z-index: -9;
-
-body{
+}
+body {
   background-color: black;
 }
 .how-to {
