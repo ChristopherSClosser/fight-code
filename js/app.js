@@ -11,7 +11,8 @@ var timeLimit = 20; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 var haveWinner = false;
-var charImg = ['','',''];
+var oppenentPic = 'img/computeropp.png';
+// var charImg = ['','',''];
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -49,12 +50,15 @@ function handleSubmit (event){
   event.preventDefault();
   event.stopPropagation();
   // console.log(event);
-
+  var compPic = document.getElementById('compPic');
+  compPic.src = oppenentPic;
   for (var i = 0; i < characters.length; i++) {
     var radio = document.getElementById(characters[i]);
     if (radio.checked === true){
       chosenChar = radio.value;
       // console.log('radio value',radio.checked);
+      var playPic = document.getElementById('playPic');
+      playPic.src = chosenChar;
     }
   }
   for (var i = 0; i < levels.length; i++) {

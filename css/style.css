@@ -30,3 +30,6 @@
   position: absolute;
   display: none;
 }
+label img{
+  width:50px;
+}
