@@ -11,8 +11,11 @@ var timeLimit = 60; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 var haveWinner = false;
+var compPic = document.getElementById('compPic');
 var oppenentPic = 'img/computeropp.png';
-// var charImg = ['','',''];
+var fightingBoss = false;
+var winnerOverlay = document.getElementById('winner-overlay');
+var loserOverlay = document.getElementById('loser-overlay');
 
 //Questions array
 var one = new Question('What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?', ['document.getElementById("demo").innerHTML = "Hello World!";', 'document.getElementById("p").innerHTML = "Hello World!";', '#demo.innerHTML = "Hello World!";' ]);
@@ -27,6 +30,7 @@ var nine = new Question('What is the proper syntax for writing a comment in HTML
 var ten = new Question('How would you declare the variable k?', ['var k;', 'var = k;', 'k = variable;']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
+var bossQuestions = []; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
@@ -50,7 +54,6 @@ function handleSubmit (event){
   event.preventDefault();
   event.stopPropagation();
   // console.log(event);
-  var compPic = document.getElementById('compPic');
   compPic.src = oppenentPic;
   for (var i = 0; i < characters.length; i++) {
     var radio = document.getElementById(characters[i]);
@@ -92,6 +95,9 @@ function handleSubmit (event){
 function getQuestion() {
   if (haveWinner){
     clearInterval(tick);
+    if (computer.health === 0) {
+      summonBoss();
+    }
     return;
   }
   var questionElement = document.getElementById('questionContainer');
@@ -111,9 +117,6 @@ function getQuestion() {
     botAns = getRandomIndex();
   }
   var allAns = [topAns, midAns, botAns];
-  // console.log('answerInputElements: ', answerInputElements);
-  // console.log('questions: ', questions);
-  // console.log('questionNumber: ', questionNumber);
   for (var k = 0; k < answerInputElements.length; k++) {
     answerInputElements[k].textContent = questions[questionNumber].answers[allAns[k]];
   }
@@ -209,6 +212,9 @@ function fireUpTimer(){
 
 function displayHit(player){
   player.health--;
+  if (fightingBoss){
+    player.health--;
+  }
   var overlay = document.getElementById('overlay-animations');
   overlay.setAttribute('style', 'display: block');
   // console.log('Should see overlay');
@@ -232,15 +238,13 @@ function saveToLocalStorage(currentUserStats){
 
 // checking to see if either opponets health is 0
 function handleWinLoss(player){
-  if (player.health === 0) {
+  if (player.health <= 0) {
     // debugger;
     if (player.isHuman === true) {
-      var overlay = document.getElementById('loser-overlay');
-      overlay.setAttribute('style', 'z-index: 9');
+      loserOverlay.setAttribute('style', 'z-index: 9');
       console.log('You Lose! and see Lindsay...');
     } else {
-      var overlay = document.getElementById('winner-overlay');
-      overlay.setAttribute('style', 'z-index: 9');
+      winnerOverlay.setAttribute('style', 'z-index: 9');
       console.log('You Win! and see Ely...');
     }
     haveWinner = true;
@@ -250,4 +254,18 @@ function handleWinLoss(player){
 function hideEntryForm(){
   var entryForm = document.getElementById('entry-form');
   entryForm.setAttribute('style', 'display: none');
+}
+
+function summonBoss(){
+  fightingBoss = true;
+  haveWinner = false;
+  compPic.src = 'img/adam-boss.png';
+  winnerOverlay.setAttribute('style', 'z-index: 9');
+  cumputer.health = 6;
+  player.health = 5;
+  questions = bossQuestions;// grab new questions
+
+  // reset timer
+
+
 }
