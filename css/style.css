@@ -1,4 +1,57 @@
 /*styling*/
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+
+}
+header {
+  background-color: #F22B29;
+  margin-top: 0;
+  display: inline-block;
+  width: 100%;
+}
+.dropbtn {
+    background-color: #F22B29;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+  }
+  .dropdown {
+    position: relative;;
+    display: inline-block;
+    margin-left: 1200px;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+}
+.dropdown-content a:hover {
+  background-color: #4B5358;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+.dropdown:hover .dropbtn {
+  background-color: #708D81;
+  }
+
 form, .questions, .action {
   background: white;
 }
@@ -37,4 +90,37 @@ form, .questions, .action {
 }
 label img{
   width:50px;
+}
+body{
+  background-color: black;
+}
+.how-to {
+  text-align: center;
+  padding-top: 150px;
+}
+#title {
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  padding-top: 25px;
+}
+#rules {
+  padding-top: 25px;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  width: 400px;
+  margin:auto;
+}
+.button{
+  font-family: 'Press Start 2P', cursive;
+  margin-left: 800px;
+  margin-top: 25px;
+}
+div h1 {
+  color: white;
+}
+#bio {
+  color: white;
+}
+#us {
+  width: 400px;
 }

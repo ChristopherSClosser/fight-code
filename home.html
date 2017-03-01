@@ -7,19 +7,22 @@
   </head>
   <header>
     <h1>Fight Code</h1>
-    <nav>
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-    </nav>
+    <div class = "dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class = "dropdown-content">
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About Us</a>
+      </div>
+    </div>
   </header>
   <body>
-    <section id = "rules">
-      <div>How to Play</div>
-        <p>Answer the question correctly, and your fighter will damage the other player. If you get the question wrong, you will take damage. Continue to answer the questions to the death!</p>
-        <button name="button">
+    <div class = "how-to">
+      <p id="title">How to Play</p>
+      <p id="rules">Answer the question correctly, and your fighter will damage the other player. If you get the question wrong, you will take damage. Continue to answer the questions to the death!</p>
+    </div>
+        <button class="button">
           <a href="play.html">Play</a>
         </button>
-    </section>
 
 
   </body>
