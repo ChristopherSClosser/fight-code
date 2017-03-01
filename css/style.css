@@ -4,8 +4,12 @@
 h1 {
   font-family: 'Press Start 2P', cursive;
   text-align: center;
-
 }
+
+* {
+  font-family: 'Press Start 2P', cursive;
+}
+
 header {
   background-color: #F22B29;
   margin-top: 0;
@@ -42,17 +46,18 @@ header {
     text-decoration: none;
     display: block;
     font-family: 'Press Start 2P', cursive;
+
 }
 .dropdown-content a:hover {
   background-color: #4B5358;
 }
 .dropdown:hover .dropdown-content {
     display: block;
-  }
+}
 
 .dropdown:hover .dropbtn {
   background-color: #708D81;
-  }
+}
 
 form, .questions, .action {
   background: white;
@@ -120,7 +125,7 @@ body {
   width: 400px;
   margin:auto;
 }
-.button{
+.button {
   font-family: 'Press Start 2P', cursive;
   margin-left: 800px;
   margin-top: 25px;
@@ -128,9 +133,42 @@ body {
 div h1 {
   color: white;
 }
+
+/*about us page*/
+
 .bio {
   color: white;
 }
-.us {
-  width: 400px;
+.about-us-body{
+  text-align: center;
+}
+.aboutUs{
+  margin: auto;
+  display: inline-block;
+  width: 37%;
+  margin-left: 3%;
+  margin-top: 12px;
+}
+
+form#entry-form {
+  margin: 0 auto;
+  background-color: #D3D3D3;
+}
+label.label-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  text-align: center;
+  margin: 0 auto;
+}
+fieldset.radiogroup {
+  display: inline-block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+fieldset.pick-name {
+  text-align: center;
+}
+
+li.characters {
+  float: left;
 }
