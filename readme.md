@@ -1,4 +1,4 @@
-# FIGHT CODE
+## FIGHT CODE
 
 * This is a game to test your coding skills. Created by Ely Paysinger, Lindsay Gilbert, Kayla Asay, and Chris Closser.
 * You may select an awesome and knowlegdable T.A. who will battle your old dated computer (Office Space style) to the death.
