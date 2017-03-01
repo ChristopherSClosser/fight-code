@@ -100,6 +100,7 @@ function getQuestion() {
   var answerContainer = document.createElement('input');
   var answerInputElements = [document.getElementById('answerOne'), document.getElementById('answerTwo'), document.getElementById('answerThree')];
   var answerLabel = document.createElement('label');
+
   //Set up variables for answers
   var topAns = getRandomIndex();
   var midAns = getRandomIndex();
@@ -118,6 +119,12 @@ function getQuestion() {
     answerInputElements[k].textContent = questions[questionNumber].answers[allAns[k]];
   }
   // questionNumber++;
+  //display questions in random order
+  function getRandomQuestion(){
+    return Math.floor(Math.random() * (questions.length));
+  }
+
+  //display answers in random order
   function getRandomIndex() {
     return Math.floor(Math.random() * (answerInputElements.length));
   }
