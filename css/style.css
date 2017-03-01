@@ -91,6 +91,14 @@ form, .questions, .action {
 label img{
   width:50px;
 }
+
+.boss-fight {
+  width: 50%;
+  height: 50%;
+  background: red;
+  position: absolute;
+  z-index: -9;
+
 body{
   background-color: black;
 }
