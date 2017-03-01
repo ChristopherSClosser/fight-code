@@ -32,17 +32,23 @@
 
             </fieldset>
             <fieldset class="radiogroup">
-              <form id="ratingsForm">
-                <div class="stars">
-                  <input type="radio" name="star" class="star-1" id="star-1" />
-                  <label class="star-1" for="star-1">1</label>
-                  <input type="radio" name="star" class="star-2" id="star-2" />
-                  <label class="star-2" for="star-2">2</label>
-                  <input type="radio" name="star" class="star-3" id="star-3" />
-                  <label class="star-3" for="star-3">3</label>
-                  <span></span>
-                </div>
-              </form>
+
+              <ul class="level">
+              <li>
+              <input type="radio" value="diff-one" id="diff-one" name="selector" checked>
+              <label for="diff-one">level-one</label>
+            </li>
+            <li>
+            <input type="radio" value="diff-two" id="diff-two" name="selector">
+            <label for="diff-two">level-two</label>
+          </li>
+          <li>
+          <input type="radio" value="diff-three" id="diff-three" name="selector">
+          <label for="diff-three">level-three</label>
+        </li>
+      </ul>
+
+
           </fieldset>
           <button type="submit" class="button">Play</button>
         </form>
@@ -78,30 +84,18 @@
           </div>
         </section>
     <script type="text/javascript" src="js/app.js"></script>
+</form>
   </body>
 </html>
 
 
-
-
-
-
-
-
-
-<!-- commented out level code -->
-
-<!-- <ul class="level">
-<li>
-<input type="radio" value="diff-one" id="diff-one" name="selector" checked>
-<label for="diff-one">level-one</label>
-</li>
-<li>
-<input type="radio" value="diff-two" id="diff-two" name="selector">
-<label for="diff-two">level-two</label>
-</li>
-<li>
-<input type="radio" value="diff-three" id="diff-three" name="selector">
-<label for="diff-three">level-three</label>
-</li>
-</ul> -->
+<!-- <form id="ratingsForm">
+<div class="stars">
+<input type="radio" name="star" class="star-1" id="star-1" />
+<label class="star-1" for="star-1">1</label>
+<input type="radio" name="star" class="star-2" id="star-2" />
+<label class="star-2" for="star-2">2</label>
+<input type="radio" name="star" class="star-3" id="star-3" />
+<label class="star-3" for="star-3">3</label>
+<span></span>
+</div>
