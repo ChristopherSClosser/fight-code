@@ -14,7 +14,6 @@ var haveWinner = false;
 var compPic = document.getElementById('compPic');
 var oppenentPic = 'img/computeropp.png';
 var fightingBoss = false;
-var bossHasPlayed = false;
 var winnerOverlay = document.getElementById('winner-overlay');
 var loserOverlay = document.getElementById('loser-overlay');
 var bossFight = document.getElementById('bossFight');
@@ -37,7 +36,7 @@ var bossTwo = new Question('img/qTwo', ['["outer", "outer"]', '["inner", "outer"
 var bossThree = new Question('img/qThree', ['3', '2', 'Error']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
-var bossQuestions = [bossOne, bossTwo, bossThree, bossOne, bossTwo, bossThree]; // need some questions here
+var bossQuestions = [bossOne, bossTwo, bossThree]; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
@@ -102,7 +101,7 @@ function handleSubmit (event){
 function getQuestion() {
   if (haveWinner){
     clearInterval(tick);
-    if (computer.health === 0 && !bossHasPlayed) {
+    if (computer.health === 0) {
       playBossLevel();
     }
     return;
@@ -286,7 +285,6 @@ function playBossLevel(){
 function summonBoss(){
   fightingBoss = true;
   haveWinner = false;
-  bossHasPlayed = true;
   compPic.src = 'img/adam-boss.png';
   winnerOverlay.setAttribute('style', 'z-index: -9');
   bossFight.setAttribute('style', 'z-index: -9');
@@ -297,6 +295,47 @@ function summonBoss(){
   placeHealthBar(human);
   questionNumber = 0;
   questions = bossQuestions;// grab new questions
-  getQuestion();
+  // shuffleArrayInPlace(questions);
   fireUpTimer();
 }
+
+// function setCookie(c_name,value,exdays){
+//   var exdate = new Date();
+//   exdate.setDate(exdate.getDate() + exdays);
+//   var c_value = escape(value) + ((exdays == null) ? '' : '; expires=' + exdate.toUTCString());
+//   document.cookie = c_name + '=' + c_value;
+// }
+//
+// function getCookie(c_name){
+//   var i,x,y,ARRcookies = document.cookie.split(';');
+//   for (i = 0; i < ARRcookies.length;i++){
+//     x = ARRcookies[i].substr(0,ARRcookies[i].indexOf('='));
+//     y = ARRcookies[i].substr(ARRcookies[i].indexOf('=') + 1);
+//     x = x.replace(/^\s+|\s+$/g,'');
+//     if (x == c_name){
+//       return unescape(y);
+//     }
+//   }
+// }
+//
+// var song = document.getElementsByTagName('audio')[0];
+// var played = false;
+// var tillPlayed = getCookie('timePlayed');
+// function update(){
+//   if(!played){
+//     if(tillPlayed){
+//       song.currentTime = tillPlayed;
+//       song.play();
+//       played = true;
+//     }
+//     else {
+//       song.play();
+//       played = true;
+//     }
+//   }
+//
+//   else {
+//     setCookie('timePlayed', song.currentTime);
+//   }
+// }
+// setInterval(update,1000);
