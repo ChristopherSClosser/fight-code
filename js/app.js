@@ -7,7 +7,7 @@ var chosenChar;
 var chosenLevel;
 var human;
 var computer;
-var timeLimit = 20; // in Seconds for question
+var timeLimit = 60; // in Seconds for question
 var overlayDuration = 1000; //in Milsecs
 var tick; // an interval varaible needs to be global so it cant be cleared from multiple functions.
 var haveWinner = false;
@@ -65,6 +65,13 @@ function handleSubmit (event){
     var radio = document.getElementById(levels[i]);
     if (radio.checked === true){
       chosenLevel = radio.value;
+      if (radio.value === 'diff-one'){
+        console.log('You have 60 seconds to answer each question');
+      } else if (radio.value === 'diff-two') {
+        timeLimit = 30;
+      } else if (radio.value === 'diff-three') {
+        timeLimit = 10;
+      }
     }
   }
   var userName = event.target.pickName.value;
