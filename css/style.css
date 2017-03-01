@@ -126,9 +126,9 @@ body {
 div h1 {
   color: white;
 }
-#bio {
+.bio {
   color: white;
 }
-#us {
+.us {
   width: 400px;
 }
