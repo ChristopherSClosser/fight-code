@@ -87,13 +87,21 @@ header {
 }
 
 .boss-fight {
-  width: 50%;
-  height: 50%;
-  background: red;
   position: absolute;
+  top: 50%;
+  left: 35%;
   z-index: -9;
+  width: 32%;
+  height: 25%;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 2%;
+  border-style: ridge;
+  border-color: #F22B29;
+  border-width: thick;
 }
-
 .healthBar img{
   width: 50px;
 }
