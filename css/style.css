@@ -83,6 +83,7 @@ header {
   margin: 10px;
   padding: 10px;
   color: black;
+  outline: none;
 }
 
 .boss-fight {
