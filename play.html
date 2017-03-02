@@ -6,96 +6,99 @@
     <link rel="stylesheet" href="css/style.css">
     <audio src="music/8bit_game_theme.wav" autoplay="true" loop="true"></audio>
   </head>
-  <header>
-    <h1>Fight Code</h1>
-    <div class = "dropdown">
-      <button class="dropbtn">Menu</button>
-      <div class = "dropdown-content">
-        <a href="home.html">Home</a>
-        <a href="about-us.html">About Us</a>
-      </div>
-    </div>
-  </header>
   <body>
     <div class="boss-fight" id="bossFight">Are you ready for the boss fight (click to fight!)</div>
-    <div class="winner-overlay" id="winner-overlay"></div>
-    <div class="loser-overlay" id="loser-overlay"></div>
-    <form id="entry-form" class="form" action="" method="">
-          <fieldset class="pick-name">
-            <label for="pickName" class="label-text">Pick a Name</label>
-            <input type="text" name="pickName" value="Test Name" required>
-          </fieldset>
-
-          <fieldset class="radiogroup">
-            <ul class="characters">
-              <li class="characters">
-                <input type="radio" value="img/ben-char.png" id="char-one" name="select" checked>
-                <label for="char-one"><img src="img/ben-char.png"></label>
-              </li>
-              <li class="characters">
-                <input type="radio" value="img/fraz-char.png" id="char-two" name="select">
-                <label for="char-two"><img src="img/fraz-char.png"></label>
-              </li>
-              <li class="characters">
-                <input type="radio" value="img/trac-char.png" id="char-three" name="select">
-                <label for="char-three"><img src="img/trac-char.png"></label>
-              </li>
-            </ul>
-
-            </fieldset>
-            <fieldset class="radiogroup">
-
-              <ul class="level">
-              <li class="level">
+    <header>
+      <h1>Fight Code</h1>
+      <div class = "dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class = "dropdown-content">
+          <a href="home.html">Home</a>
+          <a href="about-us.html">About Us</a>
+        </div>
+      </div>
+    </header>
+    <div class="main-page">
+      <div class="boss-fight" id="bossFight">Are you ready for the boss fight (click to fight!)</div>
+      <form id="entry-form" class="form" action="" method="">
+        <fieldset class="pick-name">
+          <label for="pickName" class="label-text">Enter Name</label>
+          <input type="text" name="pickName" value="Test Name" required>
+        </fieldset>
+        <fieldset class="radiogroup">
+          <h3>Choose Your Player</h3>
+          <ul class="characters">
+            <li class="characters">
+              <input type="radio" value="img/ben-char.png" id="char-one" name="select" checked>
+              <label for="char-one"><img id="ben" src="img/ben-char.png"></label>
+            </li>
+            <li class="characters">
+              <input type="radio" value="img/fraz-char.png" id="char-two" name="select">
+              <label for="char-two"><img id="fraz" src="img/fraz-char.png"></label>
+            </li>
+            <li class="characters">
+              <input type="radio" value="img/trac-char.png" id="char-three" name="select">
+              <label for="char-three"><img id="tracy" src="img/trac-char.png"></label>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="radiogroup">
+          <h3>Difficulty Level</h3>
+          <ul class="darnstars" >
+            <li class="level">
               <input type="radio" value="diff-one" id="diff-one" name="selector" checked>
-              <label for="diff-one">level-one</label>
+              <label for="diff-one"><img id="onestar" src="img/star.png"></label>
             </li>
             <li class="level">
-            <input type="radio" value="diff-two" id="diff-two" name="selector">
-            <label for="diff-two">level-two</label>
-          </li>
-          <li class="level">
-          <input type="radio" value="diff-three" id="diff-three" name="selector">
-          <label for="diff-three">level-three</label>
-        </li>
-      </ul>
-
-
-          </fieldset>
-          <button type="submit" class="button">Play</button>
-        </form>
-        <div class="questions" id="questions">
-          <div class="timer" id="timer">
-          </div>
-          <div class="question-container" id="questionContainer">
-          </div>
-          <form class="answers-container" id="answersContainer" action="" method="">
-            <input type="radio" name="answers" value="" id="ansOne">
-            <label for="ansOne" id="answerOne"></label>
-            <br>
-            <input type="radio" name="answers" value="" id="ansTwo">
-            <label for="ansTwo" id="answerTwo"></label>
-            <br>
-            <input type="radio" name="answers" value="" id="ansThree">
-            <label for="ansThree" id="answerThree"></label>
-            <br>
-            <button type="submit" name="button">Submit</button>
-          </form>
+              <input type="radio" value="diff-two" id="diff-two" name="selector">
+              <label for="diff-two"><img id="twostars" src="img/two-stars.png"></label>
+            </li>
+            <li class="level">
+              <input type="radio" value="diff-three" id="diff-three" name="selector">
+              <label for="diff-three"><img id="threestars" src="img/three-stars.png"></label>
+            </li>
+          </ul>
+        </fieldset>
+        <button type="submit" class="button">Play</button>
+      </form>
+      <div class="hidden" id="questionsSection">
+        <div class="timer" id="timer">
+        </div><br><br>
+        <div class="question-container" id="questionContainer">
         </div>
-        <section class="action" id="action">
-          <div class="overlay-animations" id="overlay-animations"></div>
-          <div class="action-wrapper">
+        <form class="answers-container" id="answersContainer" action="" method="">
+          <input type="radio" name="answers" value="" id="ansOne">
+          <label for="ansOne" id="answerOne"></label>
+          <br>
+          <input type="radio" name="answers" value="" id="ansTwo">
+          <label for="ansTwo" id="answerTwo"></label>
+          <br>
+          <input type="radio" name="answers" value="" id="ansThree">
+          <label for="ansThree" id="answerThree"></label>
+          <br>
+          <button class="answer-button" type="submit" name="button">Submit</button>
+        </form>
+      </div>
+      <section class="action" id="action">
+        <div class="hidden" id="winner-overlay"></div>
+        <div class="hidden" id="loser-overlay"></div>
+        <div class="overlay-animations" id="overlay-animations"></div>
+        <div class="action-wraper">
+          <div class="human">
             <div id="player-health" class="healthBar left"></div>
             <img id = "playPic">
-            <div id="computer-health" class="healthBar right"></div>
-            <img class = "compPic" id="compPic">
-            <div class="background-img">
-              <div id="player-one"></div>
-              <div id="computer-player"></div>
-            </div>
           </div>
-        </section>
-    <script type="text/javascript" src="js/app.js"></script>
-</form>
+          <div class="computer">
+            <div id="computer-health" class="healthBar right"></div>
+            <img id = "compPic">
+          </div>
+          <div class="background-img">
+            <div id="player-one"></div>
+            <div id="computer-player"></div>
+          </div>
+        </div>
+      </section>
+      <script type="text/javascript" src="js/app.js"></script>
+    </div>
   </body>
 </html>
