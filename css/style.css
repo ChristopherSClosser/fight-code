@@ -24,10 +24,13 @@ header {
   border: none;
   cursor: pointer;
   font-family: 'Press Start 2P', cursive;
+  z-index: 9999;
+  margin-right: 10px;
+  outline: none;
 
 }
 .dropdown {
-  position: relative;;
+  position: relative;
   display: inline-block;
   float: right;
   margin-right: 55px;
@@ -106,7 +109,7 @@ header {
   display: none;
 }
 .winner-overlay {
-  width: 100%;
+  width: 98.4%;
   height: 100%;
   background: url("../img/you-win.png");
   background-color: white;
@@ -115,7 +118,7 @@ header {
   z-index: -9;
 }
 .loser-overlay {
-  width: 100%;
+  width: 98.4%;
   height:100%;
   background: url("../img/game-over.png");
   background-size: contain;
