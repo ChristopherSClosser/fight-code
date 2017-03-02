@@ -120,7 +120,7 @@ header {
 }
 .winner-overlay {
   width: 98.4%;
-  height: 120%;
+  height: 140%;
   background: url("../img/you-win.png");
   background-color: white;
   background-size: contain;
@@ -130,7 +130,7 @@ header {
 }
 .loser-overlay {
   width: 98.4%;
-  height:120%;
+  height:140%;
   background: url("../img/game-over.png");
   background-size: contain;
   background-color: white;
