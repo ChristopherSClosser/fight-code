@@ -108,7 +108,9 @@ header {
 }
 .action {
   text-align: right;
-
+}
+.action-wraper {
+  background-image: url("../img/The_bindge.png");
 }
 .overlay-animations {
   width: 100%;
