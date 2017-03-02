@@ -155,7 +155,7 @@ body {
 }
 .how-to {
   text-align: center;
-  padding-top: 150px;
+  padding-top: 10%;
 }
 #title {
   color: white;
@@ -171,7 +171,13 @@ body {
 }
 .button {
   font-family: 'Press Start 2P', cursive;
-  margin-left: 800px;
+  margin-left: 80%;
+}
+.initialPlay{
+  font-family: 'Press Start 2P', cursive;
+  float: right;
+  margin-right: 20%;
+  margin-top: 4%;
 }
 div h1 {
   color: white;
