@@ -127,18 +127,18 @@ div.action-wraper {
   display: none;
 }
 .winner-overlay {
-  width: 98.4%;
+  width: 98.55%;
   height: 140%;
   background: url("../img/you-win.png");
   background-color: white;
   background-size: contain;
   position: absolute;
   z-index: 9;
-  top: 138px;
+  top: 131px;
   background-repeat: round;
 }
 .loser-overlay {
-  width: 98.4%;
+  width: 98.55%;
   height:140%;
   background: url("../img/game-over.png");
   background-size: contain;
