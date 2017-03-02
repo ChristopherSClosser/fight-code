@@ -126,7 +126,7 @@ header {
   background-size: contain;
   position: absolute;
   z-index: 9;
-  top: 138px;
+  top: 131px;
 }
 .loser-overlay {
   width: 98.4%;
@@ -136,7 +136,7 @@ header {
   background-color: white;
   position: absolute;
   z-index: 9;
-  top: 138px;
+  top: 131px;
 }
 
 /*---------play.html--------end*/
