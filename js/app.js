@@ -37,7 +37,7 @@ var bossTwo = new Question('What does the following block of code evaluate to?',
 var bossThree = new Question('What does the following block of code evaluate to?', ['3', '2', 'Error']);
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten];
-var bossQuestions = [bossOne, bossTwo, bossThree, bossOne, bossTwo, bossThree]; // need some questions here
+var bossQuestions = [bossOne, bossTwo, bossThree]; // need some questions here
 var questionNumber = 0;
 var answers = [];
 
@@ -250,7 +250,7 @@ function fireUpTimer(){
 function displayHit(player){
   player.health--;
   if (fightingBoss){
-    player.health--;
+    player.health -= 2;
   }
   var overlay = document.getElementById('overlay-animations');
   overlay.setAttribute('style', 'display: block');
