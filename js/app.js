@@ -94,7 +94,6 @@ function handleSubmit (event){
   var currentUserStats = [human.name, chosenChar, chosenLevel];
   //call saveToLocalStorage, placeHealthBar, fireUpTimer
   saveToLocalStorage(currentUserStats);
-  placeName();
   placeHealthBar(computer);
   fireUpTimer();
   hideEntryForm();
@@ -207,11 +206,6 @@ function uncheckRadio(){
 }
 var radioElement = document.getElementById('answersContainer');
 radioElement.addEventListener('submit', submitAnswer);
-
-function placeName(){
-  var playerNameElement = document.getElementById('playerName');
-  playerNameElement.textContent = human.name;
-}
 
 function placeHealthBar(player){
   if (player.isHuman) {
