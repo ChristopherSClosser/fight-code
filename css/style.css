@@ -184,7 +184,7 @@ body {
 .initialPlay{
   font-family: 'Press Start 2P', cursive;
   float: right;
-  margin-right: 20%;
+  margin-right: 25%;
   margin-top: 4%;
 }
 div h1 {
@@ -328,4 +328,8 @@ img#compPic {
 .players{
   display: flex;
   margin: auto;
+}
+.initPlay{
+  text-decoration: none;
+  color: black;
 }
