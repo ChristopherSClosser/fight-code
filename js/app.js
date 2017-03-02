@@ -95,9 +95,14 @@ function handleSubmit (event){
   //call saveToLocalStorage, placeHealthBar, fireUpTimer
   questionsSection.className = 'questions';
   saveToLocalStorage(currentUserStats);
+  placeName();
   placeHealthBar(computer);
   fireUpTimer();
   hideEntryForm();
+}
+function placeName(){
+  var nameElement = document.getElementById('playerName');
+  nameElement.textContent = human.name;
 }
 //display questions
 function getQuestion() {
