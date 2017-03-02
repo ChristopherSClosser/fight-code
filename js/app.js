@@ -287,6 +287,7 @@ function handleWinLoss(player){
     } else {
       winnerOverlay.className = 'winner-overlay';
       console.log('You Win! and see Ely...');
+      bossFight.className = 'boss-fight';
     }
     haveWinner = true;
   }
@@ -307,8 +308,7 @@ function summonBoss(){
   bossHasPlayed = true;
   compPic.src = 'img/adam-boss.png';
   winnerOverlay.setAttribute('style', 'z-index: -9');
-  bossFight.className = 'boss-fight';
-
+  bossFight.className = 'hidden';
   computer.health = 6;
   placeHealthBar(computer);
   human.health = 5;
