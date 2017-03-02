@@ -91,10 +91,11 @@ header {
 }
 
 .healthBar img{
-  width: 80px;
+  width: 50px;
 }
 .action {
-  width: 100%;
+  text-align: right;
+
 }
 .overlay-animations {
   width: 400px;
@@ -238,8 +239,19 @@ li.level {
   list-style: none;
 }
 
+.action-wraper{
+  text-align: center;
+  display: inline-flex;
+}
+.human .computer {
+  margin: auto;
+}
+.computer{
+  margin-left: 10%;
+
+
 div.action-wrapper {
-  display: inline;
+
   margin: 0 auto;
 }
 
@@ -267,4 +279,5 @@ div#computer-health {
 img#compPic {
   display: inline;
   margin: 0 auto;
+
 }
