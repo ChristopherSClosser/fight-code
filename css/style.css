@@ -110,9 +110,12 @@ header {
   text-align: right;
 }
 div.action-wraper {
-  background-image: url("../img/The_bidge.png");
+  background-image: url(../img/The_bidge.png);
   background-repeat: no-repeat;
-  background-size: 800px 600px;
+  background-size: 100% 600px;
+  margin: auto;
+  width: 100%;
+  padding-top: 1%;
 }
 .overlay-animations {
   width: 100%;
@@ -320,4 +323,7 @@ img#compPic {
 }
 #computerName {
   color: white;
+}
+.players{
+  display: flex;
 }
