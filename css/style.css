@@ -161,14 +161,24 @@ label.label-text {
   margin: 0 auto;
 }
 fieldset.radiogroup {
-  display: inline-block;
   margin-top: auto;
   margin-bottom: auto;
+  text-align: center;
 }
 fieldset.pick-name {
   text-align: center;
 }
 
+ul.characters {
+  text-align: center;
+}
+
 li.characters {
-  float: left;
+  text-align: center;
+  display: inline;
+  list-style: none;
+  margin: 0 auto;
+}
+li.level {
+  list-style: none;
 }
