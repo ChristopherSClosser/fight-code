@@ -127,6 +127,7 @@ header {
   position: absolute;
   z-index: 9;
   top: 138px;
+  background-repeat: round;
 }
 .loser-overlay {
   width: 98.4%;
