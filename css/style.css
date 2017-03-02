@@ -193,12 +193,15 @@ h3{
 #threestars{
   width: 90px;
 }
-/*input[type="radio"]{
-  visibility:hidden;
-}*/
-/*input[type="radio"]:checked{
-}*/
-
+#ben {
+  width:70px;
+}
+#fraz {
+  width:80px;
+}
+#tracy {
+  width:60px;
+}
 ul.characters {
   text-align: center;
 }
