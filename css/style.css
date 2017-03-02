@@ -109,8 +109,10 @@ header {
 .action {
   text-align: right;
 }
-.action-wraper {
-  background-image: url("../img/The_bindge.png");
+div.action-wraper {
+  background-image: url("../img/The_bidge.png");
+  background-repeat: no-repeat;
+  background-size: 800px 600px;
 }
 .overlay-animations {
   width: 100%;
@@ -312,4 +314,10 @@ img#compPic {
 }
 .hidden{
   display: none;
+}
+#playerName {
+  color: white;
+}
+#computerName {
+  color: white;
 }
