@@ -47,7 +47,7 @@ function Player(name, difficuly, fighter){
   this.isHuman = false;
   this.difficuly = difficuly;
   this.character = fighter;
-  this.health = 5;
+  this.health = 1;
 }
 
 //question constructor
