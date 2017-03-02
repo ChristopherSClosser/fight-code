@@ -93,6 +93,7 @@ function handleSubmit (event){
   computer = new Player('computer', chosenLevel);// needs a Char and LvL?
   var currentUserStats = [human.name, chosenChar, chosenLevel];
   //call saveToLocalStorage, placeHealthBar, fireUpTimer
+  questionsSection.className = 'questions';
   saveToLocalStorage(currentUserStats);
   placeHealthBar(computer);
   fireUpTimer();
@@ -275,10 +276,10 @@ function handleWinLoss(player){
   if (player.health <= 0) {
     // debugger;
     if (player.isHuman === true) {
-      loserOverlay.setAttribute('style', 'z-index: 9');
+      loserOverlay.className = 'loser-overlay';
       console.log('You Lose! and see Lindsay...');
     } else {
-      winnerOverlay.setAttribute('style', 'z-index: 9');
+      winnerOverlay.className = 'winner-overlay';
       console.log('You Win! and see Ely...');
     }
     haveWinner = true;
