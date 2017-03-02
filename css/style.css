@@ -182,3 +182,34 @@ li.characters {
 li.level {
   list-style: none;
 }
+
+div.action-wrapper {
+  display: inline;
+  margin: 0 auto;
+}
+
+div.questions {
+  float: left;
+  display: inline;
+  margin: 30px auto;
+  margin-left: 30px;
+  height: auto;
+  width: 500px;
+}
+
+div#player-health {
+  display: inline;
+  margin: 0 auto;
+}
+img#playPic {
+  display: inline;
+  margin: 0 auto;
+}
+div#computer-health {
+  display: inline;
+  margin: 0 auto;
+}
+img#compPic {
+  display: inline;
+  margin: 0 auto;
+}
