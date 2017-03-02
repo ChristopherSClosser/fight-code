@@ -59,6 +59,28 @@ header {
   background-color: #708D81;
 }
 /*--------play.html css--------*/
+.timer {
+  display: inline;
+  padding: 10px;
+  background-color: black;
+  color: #F22B29;
+}
+.question-container{
+  background-color: #D3D3D3;
+  padding: 10px;
+  line-height: 1.5;
+}
+.answers-container {
+  background-color: #D3D3D3;
+  padding: 10px;
+  line-height: 1.5;
+}
+.answer-button {
+  background-color: #F22B29;
+  margin: 10px;
+  padding: 10px;
+  color: black;
+}
 
 .boss-fight {
   width: 50%;
@@ -155,7 +177,9 @@ div h1 {
   margin-left: 3%;
   margin-top: 12px;
 }
-
+li {
+list-style:none
+}
 form#entry-form {
   margin: 0 auto;
   background-color: #D3D3D3;
@@ -171,10 +195,36 @@ fieldset.radiogroup {
   margin-bottom: auto;
   text-align: center;
 }
+.darnstars {
+  text-align: center;
+}
+.level {
+  display: inline-block;
+}
 fieldset.pick-name {
   text-align: center;
 }
-
+h3{
+  text-align: center;
+}
+#onestar {
+  width: 50px;
+}
+#twostars{
+  width: 70px;
+}
+#threestars{
+  width: 90px;
+}
+#ben {
+  width:70px;
+}
+#fraz {
+  width:80px;
+}
+#tracy {
+  width:60px;
+}
 ul.characters {
   text-align: center;
 }
@@ -188,6 +238,7 @@ li.characters {
 li.level {
   list-style: none;
 }
+
 .action-wraper{
   text-align: center;
   display: inline-flex;
@@ -197,4 +248,36 @@ li.level {
 }
 .computer{
   margin-left: 10%;
+
+
+div.action-wrapper {
+
+  margin: 0 auto;
+}
+
+div.questions {
+  float: left;
+  display: inline;
+  margin: 30px auto;
+  margin-left: 30px;
+  height: auto;
+  width: 500px;
+}
+
+div#player-health {
+  display: inline;
+  margin: 0 auto;
+}
+img#playPic {
+  display: inline;
+  margin: 0 auto;
+}
+div#computer-health {
+  display: inline;
+  margin: 0 auto;
+}
+img#compPic {
+  display: inline;
+  margin: 0 auto;
+
 }

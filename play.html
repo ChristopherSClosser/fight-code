@@ -7,6 +7,7 @@
     <audio src="music/8bit_game_theme.wav" autoplay="true" loop="true"></audio>
   </head>
   <body>
+    <div class="boss-fight" id="bossFight">Are you ready for the boss fight (click to fight!)</div>
     <header>
       <h1>Fight Code</h1>
       <div class = "dropdown">
@@ -27,34 +28,36 @@
           <input type="text" name="pickName" value="Test Name" required>
         </fieldset>
         <fieldset class="radiogroup">
+          <h3>Choose Your Player</h3>
           <ul class="characters">
             <li class="characters">
               <input type="radio" value="img/ben-char.png" id="char-one" name="select" checked>
-              <label for="char-one"><img src="img/ben-char.png"></label>
+              <label for="char-one"><img id="ben" src="img/ben-char.png"></label>
             </li>
             <li class="characters">
               <input type="radio" value="img/fraz-char.png" id="char-two" name="select">
-              <label for="char-two"><img src="img/fraz-char.png"></label>
+              <label for="char-two"><img id="fraz" src="img/fraz-char.png"></label>
             </li>
             <li class="characters">
               <input type="radio" value="img/trac-char.png" id="char-three" name="select">
-              <label for="char-three"><img src="img/trac-char.png"></label>
+              <label for="char-three"><img id="tracy" src="img/trac-char.png"></label>
             </li>
           </ul>
         </fieldset>
         <fieldset class="radiogroup">
-          <ul class="level">
+          <h3>Difficulty Level</h3>
+          <ul class="darnstars" >
             <li class="level">
               <input type="radio" value="diff-one" id="diff-one" name="selector" checked>
-              <label for="diff-one"><img src="img/star.png"></label>
+              <label for="diff-one"><img id="onestar" src="img/star.png"></label>
             </li>
             <li class="level">
               <input type="radio" value="diff-two" id="diff-two" name="selector">
-              <label for="diff-two">level-two</label>
+              <label for="diff-two"><img id="twostars" src="img/two-stars.png"></label>
             </li>
             <li class="level">
               <input type="radio" value="diff-three" id="diff-three" name="selector">
-              <label for="diff-three">level-three</label>
+              <label for="diff-three"><img id="threestars" src="img/three-stars.png"></label>
             </li>
           </ul>
         </fieldset>
@@ -62,7 +65,7 @@
       </form>
       <div class="questions" id="questions">
         <div class="timer" id="timer">
-        </div>
+        </div><br><br>
         <div class="question-container" id="questionContainer">
         </div>
         <form class="answers-container" id="answersContainer" action="" method="">
@@ -75,7 +78,7 @@
           <input type="radio" name="answers" value="" id="ansThree">
           <label for="ansThree" id="answerThree"></label>
           <br>
-          <button type="submit" name="button">Submit</button>
+          <button class="answer-button" type="submit" name="button">Submit</button>
         </form>
       </div>
       <section class="action" id="action">
