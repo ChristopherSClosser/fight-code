@@ -94,6 +94,7 @@ function handleSubmit (event){
   var currentUserStats = [human.name, chosenChar, chosenLevel];
   //call saveToLocalStorage, placeHealthBar, fireUpTimer
   questionsSection.className = 'questions';
+  action.className = 'action';
   saveToLocalStorage(currentUserStats);
   placeName();
   placeHealthBar(computer);
@@ -306,7 +307,7 @@ function summonBoss(){
   bossHasPlayed = true;
   compPic.src = 'img/adam-boss.png';
   winnerOverlay.setAttribute('style', 'z-index: -9');
-  bossFight.setAttribute('style', 'z-index: -9');
+  bossFight.className = 'boss-fight';
 
   computer.health = 6;
   placeHealthBar(computer);
