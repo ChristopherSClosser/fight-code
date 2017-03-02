@@ -278,6 +278,8 @@ div#player-health {
 img#playPic {
   display: inline;
   margin: 0 auto;
+  height: 400px;
+  width: auto;
 }
 div#computer-health {
   display: inline;
@@ -286,7 +288,8 @@ div#computer-health {
 img#compPic {
   display: inline;
   margin: 0 auto;
-
+  height: 500px;
+  width: auto;
 }
 .blackout{
 
