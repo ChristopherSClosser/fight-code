@@ -26,6 +26,7 @@
             <input type="text" name="pickName" value="Test Name" required>
           </fieldset>
           <fieldset class="radiogroup">
+            <h3>Choose Your Player</h3>
             <ul class="characters">
               <li class="characters">
                 <input type="radio" value="img/ben-char.png" id="char-one" name="select" checked>
@@ -42,18 +43,19 @@
             </ul>
             </fieldset>
             <fieldset class="radiogroup">
-              <ul class="level">
-                <li>
+              <h3>Difficulty Level</h3>
+              <ul class="darnstars">
+                <li class="level">
                   <input type="radio" value="diff-one" id="diff-one" name="selector" checked>
-                  <label for="diff-one"><img src="img/star.png"</label>
+                  <label for="diff-one"><img id="onestar" src="img/star.png"</label>
                 </li>
-                <li>
+                <li class="level">
                   <input type="radio" value="diff-two" id="diff-two" name="selector">
-                  <label for="diff-two">level-two</label>
+                  <label for="diff-two"><img id="twostars" src="img/two-stars.png"></label>
                 </li>
-                <li>
+                <li class="level">
                   <input type="radio" value="diff-three" id="diff-three" name="selector">
-                  <label for="diff-three">level-three</label>
+                  <label for="diff-three"><img id="threestars" src="img/three-stars.png"></label>
                 </li>
               </ul>
             </fieldset>
@@ -91,15 +93,5 @@
           </div>
         </section>
     <script type="text/javascript" src="js/app.js"></script>
-</form>
   </body>
 </html>
-
-<!-- <span class="starRating">
-  <input id="rating3" type="radio" name="rating" value="diff-one">
-  <label for="rating3">3</label>
-  <input id="rating2" type="radio" name="rating" value="diff-two">
-  <label for="rating2">2</label>
-  <input id="rating1" type="radio" name="rating" value="diff-three">
-  <label for="rating1">1</label>
-</span> -->

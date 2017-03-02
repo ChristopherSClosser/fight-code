@@ -149,7 +149,9 @@ div h1 {
   margin-left: 3%;
   margin-top: 12px;
 }
-
+li {
+list-style:none
+}
 form#entry-form {
   margin: 0 auto;
   background-color: #D3D3D3;
@@ -165,9 +167,32 @@ fieldset.radiogroup {
   margin-top: auto;
   margin-bottom: auto;
 }
+.darnstars {
+  text-align: center;
+}
+.level {
+  display: inline-block;
+}
 fieldset.pick-name {
   text-align: center;
 }
+h3{
+  text-align: center;
+}
+#onestar {
+  width: 50px;
+}
+#twostars{
+  width: 70px;
+}
+#threestars{
+  width: 90px;
+}
+/*input[type="radio"]{
+  visibility:hidden;
+}*/
+/*input[type="radio"]:checked{
+}*/
 
 li.characters {
   float: left;
