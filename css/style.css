@@ -58,9 +58,14 @@ header {
 .dropdown:hover .dropbtn {
   background-color: #708D81;
 }
+/*--------play.html css--------*/
 
-form, .questions, .action {
-  background: white;
+.boss-fight {
+  width: 50%;
+  height: 50%;
+  background: red;
+  position: absolute;
+  z-index: -9;
 }
 
 .healthBar img{
@@ -95,17 +100,17 @@ form, .questions, .action {
   position: absolute;
   z-index: -9;
 }
+
+/*---------play.html--------end*/
+
+form, .questions, .action {
+  background: white;
+}
+
 label img{
   width:50px;
 }
 
-.boss-fight {
-  width: 50%;
-  height: 50%;
-  background: red;
-  position: absolute;
-  z-index: -9;
-}
 body {
   background-color: black;
 }
