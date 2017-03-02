@@ -98,8 +98,8 @@ header {
 
 }
 .overlay-animations {
-  width: 400px;
-  height:400px;
+  width: 100%;
+  height:100%;
   background: url("../img/POW.jpg");
   background-size: contain;
   position: absolute;
@@ -248,7 +248,7 @@ li.level {
 }
 .computer{
   margin-left: 10%;
-
+}
 
 div.action-wrapper {
 
@@ -257,11 +257,11 @@ div.action-wrapper {
 
 div.questions {
   float: left;
-  display: inline;
+  display: block;
   margin: 30px auto;
   margin-left: 30px;
   height: auto;
-  width: 500px;
+  width: 800px;
 }
 
 div#player-health {
