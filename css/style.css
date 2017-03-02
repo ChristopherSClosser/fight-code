@@ -108,7 +108,9 @@ header {
 }
 .action {
   text-align: right;
-
+}
+.action-wraper {
+  background-image: url("../img/The_bindge.png");
 }
 .overlay-animations {
   width: 100%;
@@ -137,7 +139,7 @@ header {
   background-color: white;
   position: absolute;
   z-index: 9;
-  top: 138px;
+  top: 131px;
 }
 
 /*---------play.html--------end*/
