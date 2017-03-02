@@ -326,4 +326,5 @@ img#compPic {
 }
 .players{
   display: flex;
+  margin: auto;
 }
