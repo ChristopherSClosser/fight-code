@@ -22,7 +22,7 @@
       <div class="winner-overlay" id="winner-overlay"></div>
       <div class="loser-overlay" id="loser-overlay"></div>
       <form id="entry-form" class="form" action="" method="">
-        <fieldset>
+        <fieldset class="pick-name">
           <label for="pickName" class="label-text">Pick a Name</label>
           <input type="text" name="pickName" value="Test Name" required>
         </fieldset>
@@ -44,15 +44,15 @@
         </fieldset>
         <fieldset class="radiogroup">
           <ul class="level">
-            <li>
+            <li class="level">
               <input type="radio" value="diff-one" id="diff-one" name="selector" checked>
-              <label for="diff-one"><img src="img/star.png"</label>
+              <label for="diff-one"><img src="img/star.png"></label>
             </li>
-            <li>
+            <li class="level">
               <input type="radio" value="diff-two" id="diff-two" name="selector">
               <label for="diff-two">level-two</label>
             </li>
-            <li>
+            <li class="level">
               <input type="radio" value="diff-three" id="diff-three" name="selector">
               <label for="diff-three">level-three</label>
             </li>
@@ -95,12 +95,3 @@
     </div>
   </body>
 </html>
-
-<!-- <span class="starRating">
-  <input id="rating3" type="radio" name="rating" value="diff-one">
-  <label for="rating3">3</label>
-  <input id="rating2" type="radio" name="rating" value="diff-two">
-  <label for="rating2">2</label>
-  <input id="rating1" type="radio" name="rating" value="diff-three">
-  <label for="rating1">1</label>
-</span> -->
