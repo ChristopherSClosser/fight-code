@@ -34,6 +34,7 @@ header {
   display: inline-block;
   float: right;
   margin-right: 55px;
+  z-index: 9999999;
 }
 .dropdown-content {
   display: none;
@@ -111,21 +112,23 @@ header {
 }
 .winner-overlay {
   width: 98.4%;
-  height: 100%;
+  height: 120%;
   background: url("../img/you-win.png");
   background-color: white;
   background-size: contain;
   position: absolute;
   z-index: -9;
+  top: 138px;
 }
 .loser-overlay {
   width: 98.4%;
-  height:100%;
+  height:120%;
   background: url("../img/game-over.png");
   background-size: contain;
   background-color: white;
   position: absolute;
   z-index: -9;
+  top: 138px;
 }
 
 /*---------play.html--------end*/
@@ -283,5 +286,8 @@ div#computer-health {
 img#compPic {
   display: inline;
   margin: 0 auto;
+
+}
+.blackout{
 
 }
