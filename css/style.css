@@ -153,11 +153,9 @@ div.action-wraper {
 form, .questions, .action {
   background: white;
 }
-
 label img{
   width:50px;
 }
-
 body {
   background-color: black;
 }
@@ -257,7 +255,6 @@ h3{
 ul.characters {
   text-align: center;
 }
-
 li.characters {
   text-align: center;
   display: inline;
@@ -267,7 +264,6 @@ li.characters {
 li.level {
   list-style: none;
 }
-
 .action-wraper{
   text-align: center;
   display: inline-flex;
@@ -278,12 +274,10 @@ li.level {
 .computer{
   margin-left: 10%;
 }
-
 div.action-wrapper {
 
   margin: 0 auto;
 }
-
 div.questions {
   float: left;
   display: block;
@@ -292,7 +286,6 @@ div.questions {
   height: auto;
   width: 800px;
 }
-
 div#player-health {
   display: inline;
   margin: 0 auto;
