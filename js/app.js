@@ -157,7 +157,7 @@ var formElement = document.getElementById('entry-form');
 formElement.addEventListener('submit', handleSubmit);
 
 function shuffleArrayInPlace(questions) {
-  var i = 9;
+  var i = questions.length - 1;
   var j, temp;
   while (i >= 1) {
     j = Math.floor( Math.random() * ( i + 1 ) ); // random element up to i, inclusive
@@ -283,9 +283,11 @@ function handleWinLoss(player){
     // debugger;
     if (player.isHuman === true) {
       loserOverlay.className = 'loser-overlay';
+      actionWraper.className = 'hidden';
       console.log('You Lose! and see Lindsay...');
     } else {
       winnerOverlay.className = 'winner-overlay';
+      actionWraper.className = 'hidden';
       console.log('You Win! and see Ely...');
       if(!bossHasPlayed){
         bossFight.className = 'boss-fight';
@@ -309,6 +311,7 @@ function summonBoss(){
   fightingBoss = true;
   haveWinner = false;
   bossHasPlayed = true;
+  actionWraper.className = 'action-wraper';
   compPic.src = 'img/adam-boss.png';
   winnerOverlay.className = 'hidden';
   bossFight.className = 'hidden';
